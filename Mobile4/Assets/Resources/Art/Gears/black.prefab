@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830356620349278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.17, y: 1.63, z: 0}
-  m_LocalScale: {x: 0.41034195, y: 0.39396444, z: 1}
+  m_LocalPosition: {x: -4.1, y: 1.4638143, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -163,8 +163,7 @@ MonoBehaviour:
   swapSound: {fileID: 8300000, guid: 03aa09522745ddc4fa23a5fe46484274, type: 3}
   selectSound: {fileID: 8300000, guid: 567376b80e0350040a86dbd342b02319, type: 3}
   clearSound: {fileID: 8300000, guid: 4b4043ea4a208e44f9ceb6db860a42ea, type: 3}
-  winObj: {fileID: 1296926854569438, guid: 9f6a7155e16301c4991cd5784b3304d3, type: 2}
-  lossObj: {fileID: 1781392175988590, guid: 62bb7bf4c7487c14d9bb1ffcea0af93b, type: 2}
+  manager: {fileID: 0}
   moveCounter: 0
   multiplier: 0
   numSwaps: 0
@@ -172,6 +171,7 @@ MonoBehaviour:
   enemyAttacking: 0
   win: 0
   loss: 0
+  gameEnd: 0
 --- !u!212 &212023819234247820
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -181,6 +181,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -196,6 +197,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -207,7 +209,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: c3648b6bfc1a0a04fa14c59a3e44710f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5

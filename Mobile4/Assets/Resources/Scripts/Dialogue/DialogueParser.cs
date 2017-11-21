@@ -19,12 +19,14 @@ public class DialogueParser : MonoBehaviour {
 		public string content;
 		public int pose;
 		public string position;
+        public string[] options;
 
 		public DialogueLine(string n, string c, int p, string pos) {
 			name = n;
 			content = c;
 			pose = p;
 			position = pos;
+            options = new string[0];
 		}
 	}
 
@@ -77,6 +79,13 @@ public class DialogueParser : MonoBehaviour {
 		return "";
 	}
 
+    public string[] GetOptions(int lineNum) {
+        if (lineNum < lines.Count) {
+            return lines[lineNum].options;
+        }
+        return new string[0];
+    }
+
 	void LoadImages() {
 		//Debug.Log ("In Load Images");
 		for (int i = 0; i < lines.Count; i++) {
@@ -94,7 +103,7 @@ public class DialogueParser : MonoBehaviour {
 	}
 
 	void LoadDialogue (string filename) {
-		string file = Application.streamingAssetsPath + "/Files/" + filename;
+		string file = Application.streamingAssetsPath + "/" + filename;
 		Debug.Log ("FILE BEING USED: " + file);
 		//Debug.Log(filename);
 		string line;
@@ -107,15 +116,30 @@ public class DialogueParser : MonoBehaviour {
 				//Debug.Log("Line: " + line);
 				if (line != null) {
 					string[] lineValues = line.Split('|');
-					//Debug.Log("List: " + lineValues);
-					//for ( int i = 0; i < lineValues.Length; i++) {
-					//	Debug.Log("** Line Values: " + lineValues[i]);
-					//}
-					//Debug.Log(lineValues[0]);
-					//Debug.Log(lineValues[1]);
-					//Debug.Log(int.Parse(lineValues[2]));
-					DialogueLine newLine = new DialogueLine(lineValues[0], lineValues[1], int.Parse(lineValues[2]), lineValues[3]);
-					lines.Add(newLine);
+                    if (lineValues[0] == "Player")
+                    {
+                        //make empty dialogue line
+                        DialogueLine newLine = new DialogueLine(lineValues[0], "", 0, "");
+                        //set up options to be read in. -1 because you dont want the 'player' tag to count
+                        newLine.options = new string[lineValues.Length - 1];
+                        for (int i = 1; i < lineValues.Length; i++)
+                        {
+                            // Retrieve only the meaningful data.
+                            newLine.options[i - 1] = lineValues[i];
+                        }
+                        lines.Add(newLine);
+                    }
+                    else {
+                        //Debug.Log("List: " + lineValues);
+                        //for ( int i = 0; i < lineValues.Length; i++) {
+                        //	Debug.Log("** Line Values: " + lineValues[i]);
+                        //}
+                        //Debug.Log(lineValues[0]);
+                        //Debug.Log(lineValues[1]);
+                        //Debug.Log(int.Parse(lineValues[2]));
+                        DialogueLine newLine = new DialogueLine(lineValues[0], lineValues[1], int.Parse(lineValues[2]), lineValues[3]);
+                        lines.Add(newLine);
+                    }
 				}
 			}
 			while (line != null);

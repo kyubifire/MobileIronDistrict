@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 94ded02c9553d01459b6bbd98ebbc0c4
-timeCreated: 1506734218
+timeCreated: 1510009259
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -104,10 +104,10 @@ TextureImporter:
       name: Breya_Attack_Long_0
       rect:
         serializedVersion: 2
-        x: 65
-        y: 1208
-        width: 185
-        height: 292
+        x: 0
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,10 +118,10 @@ TextureImporter:
       name: Breya_Attack_Long_1
       rect:
         serializedVersion: 2
-        x: 958
-        y: 1206
-        width: 178
-        height: 289
+        x: 900
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,10 +132,10 @@ TextureImporter:
       name: Breya_Attack_Long_2
       rect:
         serializedVersion: 2
-        x: 1851
-        y: 1205
-        width: 172
-        height: 283
+        x: 1800
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: Breya_Attack_Long_3
       rect:
         serializedVersion: 2
-        x: 2744
-        y: 1203
-        width: 170
-        height: 278
+        x: 2700
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: Breya_Attack_Long_4
       rect:
         serializedVersion: 2
-        x: 37
-        y: 902
-        width: 176
-        height: 271
+        x: 0
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: Breya_Attack_Long_5
       rect:
         serializedVersion: 2
-        x: 932
-        y: 902
-        width: 175
-        height: 264
+        x: 900
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: Breya_Attack_Long_6
       rect:
         serializedVersion: 2
-        x: 1826
-        y: 902
-        width: 178
-        height: 257
+        x: 1800
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: Breya_Attack_Long_7
       rect:
         serializedVersion: 2
-        x: 2726
-        y: 904
-        width: 171
-        height: 251
+        x: 2700
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Breya_Attack_Long_8
       rect:
         serializedVersion: 2
-        x: 18
-        y: 608
-        width: 175
-        height: 247
+        x: 0
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +230,10 @@ TextureImporter:
       name: Breya_Attack_Long_9
       rect:
         serializedVersion: 2
-        x: 1048
-        y: 603
-        width: 158
-        height: 255
+        x: 900
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: Breya_Attack_Long_10
       rect:
         serializedVersion: 2
-        x: 2071
-        y: 601
-        width: 161
-        height: 262
+        x: 1800
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: Breya_Attack_Long_11
       rect:
         serializedVersion: 2
-        x: 3092
-        y: 601
-        width: 174
-        height: 266
+        x: 2700
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: Breya_Attack_Long_12
       rect:
         serializedVersion: 2
-        x: 515
-        y: 302
-        width: 250
-        height: 270
+        x: 0
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +286,10 @@ TextureImporter:
       name: Breya_Attack_Long_13
       rect:
         serializedVersion: 2
-        x: 1413
-        y: 304
-        width: 282
-        height: 271
+        x: 900
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +300,10 @@ TextureImporter:
       name: Breya_Attack_Long_14
       rect:
         serializedVersion: 2
-        x: 2313
-        y: 309
-        width: 275
-        height: 270
+        x: 1800
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +314,10 @@ TextureImporter:
       name: Breya_Attack_Long_15
       rect:
         serializedVersion: 2
-        x: 3222
-        y: 308
-        width: 302
-        height: 274
+        x: 2700
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: Breya_Attack_Long_16
       rect:
         serializedVersion: 2
-        x: 3470
-        y: 473
-        width: 56
-        height: 53
+        x: 0
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +342,10 @@ TextureImporter:
       name: Breya_Attack_Long_17
       rect:
         serializedVersion: 2
-        x: 1608
-        y: 360
-        width: 92
-        height: 76
+        x: 900
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,10 +356,10 @@ TextureImporter:
       name: Breya_Attack_Long_18
       rect:
         serializedVersion: 2
-        x: 2501
-        y: 355
-        width: 123
-        height: 109
+        x: 1800
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,94 +370,10 @@ TextureImporter:
       name: Breya_Attack_Long_19
       rect:
         serializedVersion: 2
-        x: 531
-        y: 7
-        width: 300
-        height: 287
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Breya_Attack_Long_20
-      rect:
-        serializedVersion: 2
-        x: 1440
-        y: 7
-        width: 197
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Breya_Attack_Long_21
-      rect:
-        serializedVersion: 2
-        x: 1626
-        y: 67
-        width: 112
-        height: 165
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Breya_Attack_Long_22
-      rect:
-        serializedVersion: 2
-        x: 2350
-        y: 9
-        width: 172
-        height: 285
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Breya_Attack_Long_23
-      rect:
-        serializedVersion: 2
-        x: 2551
-        y: 97
-        width: 95
-        height: 140
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Breya_Attack_Long_24
-      rect:
-        serializedVersion: 2
-        x: 3008
-        y: 9
-        width: 205
-        height: 288
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Breya_Attack_Long_25
-      rect:
-        serializedVersion: 2
-        x: 3451
-        y: 157
-        width: 96
-        height: 87
+        x: 2700
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

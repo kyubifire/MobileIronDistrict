@@ -22,11 +22,12 @@ public class Tile : MonoBehaviour {
 	public AudioClip clearSound;
 
 	// UI
-	public GameObject winObj;
-	public GameObject lossObj;
+//	public GameObject winObj;
+//	public GameObject lossObj;
 	//*********************************************************************\\
 	GameObject playerObj;
 	GameObject enemyObj;
+	public M3_GameManager manager;
 
 	public int moveCounter;  		// after # of moves, enemy power bar gets added to
 	public int multiplier;   			// After getting matches back to back, player can get a multiplier value added to attackDamage
@@ -36,6 +37,7 @@ public class Tile : MonoBehaviour {
 
 	public bool win;
 	public bool loss;
+	public bool gameEnd;
 
 	//GameObject timerObj;
 	//public float time;
@@ -55,20 +57,22 @@ public class Tile : MonoBehaviour {
 		enemyAttacking = false;
 		win = false;
 		loss = false;
+		gameEnd = false;
 		//timeExpired = false;
 		//multiplier = 0;
 		moveCounter = 0;
 
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		enemyObj = GameObject.FindGameObjectWithTag("Enemy");
+		manager = GetComponent<M3_GameManager> ();
 		//Debug.Log (playerObj);
 		//Debug.Log (enemyObj);
 
-		winObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
-		winObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
-
-		lossObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
-		lossObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+//		winObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+//		winObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+//
+//		lossObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+//		lossObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
 
 		//InvokeRepeating ("TimeAttack", 1f, 1f);
 	}
@@ -77,29 +81,20 @@ public class Tile : MonoBehaviour {
 		//time -= Time.deltaTime;
 		//Debug.Log (time);
 
-		if (enemyObj.GetComponent<M3_Enemy> ().dead) {
-			//win = true;
-			// display win screen
-			Instantiate (winObj);
-
-		} else if (playerObj.GetComponent<M3_Player>().dead) {
-			//loss = true;
-			Instantiate (lossObj);
-			// else display lose screen
-		} 
-
-//		if (win) {
-//			Debug.Log ("YOU WON!!");
+//		if (enemyObj.GetComponent<M3_Enemy> ().dead) {
+//			gameEnd = true;
+//			// display win screen
 //			Instantiate (winObj);
-//		} else if (loss) {
-//			Debug.Log ("YOU LOST !!");
+//
+//		} else if (playerObj.GetComponent<M3_Player>().dead) {
+//			gameEnd = true;
 //			Instantiate (lossObj);
+//			// else display lose screen
+//		} 
+//
+//		if (gameEnd == true && Input.GetKeyDown(KeyCode.Return)) {
+//			SceneManager.LoadScene(sceneIdx + 1);
 //		}
-
-		if (Input.GetKeyDown(KeyCode.Return)) {
-			// return to start
-			SceneManager.LoadScene(sceneIdx + 1);
-		}
 
 		if (moveCounter == 2) {
 			Debug.Log ("Player made two moves, filling enemy power bar");
@@ -166,7 +161,7 @@ public class Tile : MonoBehaviour {
 		numSwaps += 1;
 		Debug.Log ("Num Swaps: " + numSwaps);
 		if (numSwaps >= 2) {
-			enemyObj.GetComponent<M3_Enemy>().setPowerBar(10f);
+			//enemyObj.GetComponent<M3_Enemy>().setPowerBar(10f);
 			numSwaps = 0;		// reset
 		}
 	}
@@ -215,7 +210,9 @@ public class Tile : MonoBehaviour {
 			matchFound = true;
 		}
 		if (matchFound == true) {
-			playerObj.GetComponent<M3_Player>().setPowerBar(10f);
+			playerObj.GetComponent<M3_Player>().SetPowerUp(10f);
+			playerObj.GetComponent<M3_Player> ().Attack ();
+
 		}
 	}
 
@@ -234,28 +231,4 @@ public class Tile : MonoBehaviour {
 			moveCounter++;
 		}
 	}
-		
-//	void TimeAttack() {
-//		if (time <= 0) {
-//			//Debug.Log (timerObj.GetComponent<CombatTimer> ().timeExpired);
-//			Debug.Log ("TIME RAN OUT!! ENEMY ATTACKING!!");
-//			enemyAttacking = true;
-//			enemyAnim.SetBool ("IsAttacking", true);
-//			enemyAnim.SetTrigger ("IsAttacking");
-//
-//			playerCurrHealth -= enemyAttackDamage;
-//			calc_playerHealth = playerCurrHealth / playerMaxHealth;  // new scale by which to set health bar
-//			playerObj.GetComponent<M3_Player> ().setPlayerHealth (calc_playerHealth);
-//			source.PlayOneShot (enemyAttackSound);
-//
-//			//Debug.Log ("Player Health: " + playerCurrHealth);
-//			if (playerCurrHealth <= 0) {
-//				playerAnim.SetBool ("Dead", true);
-//				//SceneManager.LoadScene(0);
-//				loss = true;
-//			}
-//			Debug.Log ("STOPPING ENEMY ATTACK");
-//			Invoke ("StopAttack", 1);
-//		}
-//	}
 }

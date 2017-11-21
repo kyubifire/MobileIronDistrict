@@ -5,13 +5,17 @@ using System.Collections.Generic;
 public class M3_Player : MonoBehaviour {
 	public M3_Player instance;
 	public Animator anim;
+	public Vector3 startPos;
 
-	public GameObject playerHealthBar;
+
 	public GameObject powerUpBar;
+	public ParticleSystem particles;
+	public GameObject playerHealthBar;
 
 	private float calc_playerHealth;
 
-	float playerAttackDamage = 10f;
+	public float weakAtk = 2f;
+	public float specialAtk = 20f;
 	public float playerMaxHealth = 100f;
 	public float playerCurrHealth = 0f;
 	public float barAmount = 0f;
@@ -22,12 +26,13 @@ public class M3_Player : MonoBehaviour {
 	float attackTime;
 	bool attacking = false;
 	public bool dead = false;
-	// Audio and Sound Effects;
-	public AudioClip playerAttackSound;
-	public AudioClip fillSound;
-	public AudioClip completeFill;
-	private AudioSource source;
 
+
+	// Audio and Sound Effects;
+	private AudioSource source;
+	public AudioClip powerFill;
+	public AudioClip completeFill;
+	public AudioClip playerAttackSound;
 
 	GameObject enemyObj;
 
@@ -38,9 +43,10 @@ public class M3_Player : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
 
 		playerCurrHealth = playerMaxHealth;
+		startPos = transform.localPosition;
 
 		// set power bar to 0 in x so bar is empty at start of game
-		powerUpBar.transform.localScale = new Vector3(0f, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
+		//powerUpBar.transform.localScale = new Vector3(0f, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
 
 		// create reference for enemy 
 		enemyObj = GameObject.FindGameObjectWithTag("Enemy");
@@ -52,13 +58,15 @@ public class M3_Player : MonoBehaviour {
 		// function call to test power up bar
 		//InvokeRepeating("increaseBar", 1f, 1f);
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
 		if (attacking && Time.time > attackTime) {
 			anim.SetBool ("IsAttacking", false);
 			attacking = false;
 		}
+
+	//	particles.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z);
 	}
 
 	public void setPlayerHealth(float damage) {
@@ -85,20 +93,43 @@ public class M3_Player : MonoBehaviour {
 		//Debug.Log ("** adding power up bar by factor: " + calcAmount);
 
 		if (barAmount < totalAmount) {
-			source.PlayOneShot (fillSound);
 			powerUpBar.transform.localScale = new Vector3 (calcAmount, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
 		} 
 		if (barAmount >= totalAmount && calcAmount  == 1) {
-			source.PlayOneShot (completeFill);
+			transform.localPosition = startPos;
 			anim.SetBool("IsAttacking", true);
+			//source.PlayOneShot (playerAttackSound);
 			attacking = true;
-			enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (playerAttackDamage);
-			attackTime = Time.time + totalAttackTime;
+			enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (weakAtk);
+			attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
 			// reset power bar
-			powerUpBar.transform.localScale = new Vector3 (0, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
+			//powerUpBar.transform.localScale = new Vector3 (0, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
 			barAmount = 0;
-			source.PlayOneShot (playerAttackSound);
 		}
+	}
+
+	public void SetPowerUp(float newAmount) {
+		if (barAmount < 50) {
+			source.volume = 0.25f;
+			source.PlayOneShot (powerFill);
+			barAmount += newAmount;
+			enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (weakAtk);
+			float calcAmount = barAmount / totalAmount;
+		} else if (barAmount >= 50) {   // get 5 matches
+			source.volume = 5f;
+			particles.Play ();
+			source.PlayOneShot (completeFill);
+		}
+		barAmount = 0;
+	}
+
+	public void Attack() {
+		transform.localPosition = startPos;
+		anim.SetBool("IsAttacking", true);
+		source.PlayOneShot (playerAttackSound);
+		attacking = true;
+		enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (weakAtk);
+		attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
 	}
 
 	// function to test health bar in game

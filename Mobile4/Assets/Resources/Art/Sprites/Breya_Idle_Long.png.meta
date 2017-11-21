@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 65724d5b4d6557a4ab8302797a530689
-timeCreated: 1507154320
+timeCreated: 1510028890
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -98,10 +98,10 @@ TextureImporter:
       name: Breya_Idle_Long_0
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1207
-        width: 186
-        height: 293
+        x: 0
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,10 +112,10 @@ TextureImporter:
       name: Breya_Idle_Long_1
       rect:
         serializedVersion: 2
-        x: 966
-        y: 1207
-        width: 188
-        height: 293
+        x: 900
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,10 +126,10 @@ TextureImporter:
       name: Breya_Idle_Long_2
       rect:
         serializedVersion: 2
-        x: 1868
-        y: 1207
-        width: 187
-        height: 293
+        x: 1800
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +140,10 @@ TextureImporter:
       name: Breya_Idle_Long_3
       rect:
         serializedVersion: 2
-        x: 2769
-        y: 1207
-        width: 187
-        height: 293
+        x: 2700
+        y: 1200
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: Breya_Idle_Long_4
       rect:
         serializedVersion: 2
-        x: 69
-        y: 907
-        width: 188
-        height: 295
+        x: 0
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Breya_Idle_Long_5
       rect:
         serializedVersion: 2
-        x: 971
-        y: 907
-        width: 188
-        height: 295
+        x: 900
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: Breya_Idle_Long_6
       rect:
         serializedVersion: 2
-        x: 1871
-        y: 907
-        width: 188
-        height: 295
+        x: 1800
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: Breya_Idle_Long_7
       rect:
         serializedVersion: 2
-        x: 2773
-        y: 907
-        width: 188
-        height: 293
+        x: 2700
+        y: 900
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: Breya_Idle_Long_8
       rect:
         serializedVersion: 2
-        x: 73
-        y: 608
-        width: 189
-        height: 293
+        x: 0
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: Breya_Idle_Long_9
       rect:
         serializedVersion: 2
-        x: 975
-        y: 608
-        width: 188
-        height: 291
+        x: 900
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: Breya_Idle_Long_10
       rect:
         serializedVersion: 2
-        x: 1876
-        y: 608
-        width: 188
-        height: 291
+        x: 1800
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: Breya_Idle_Long_11
       rect:
         serializedVersion: 2
-        x: 2775
-        y: 608
-        width: 188
-        height: 291
+        x: 2700
+        y: 600
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: Breya_Idle_Long_12
       rect:
         serializedVersion: 2
-        x: 73
-        y: 307
-        width: 189
-        height: 294
+        x: 0
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +280,10 @@ TextureImporter:
       name: Breya_Idle_Long_13
       rect:
         serializedVersion: 2
-        x: 973
-        y: 307
-        width: 188
-        height: 294
+        x: 900
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: Breya_Idle_Long_14
       rect:
         serializedVersion: 2
-        x: 1871
-        y: 307
-        width: 188
-        height: 294
+        x: 1800
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +308,10 @@ TextureImporter:
       name: Breya_Idle_Long_15
       rect:
         serializedVersion: 2
-        x: 2771
-        y: 307
-        width: 188
-        height: 295
+        x: 2700
+        y: 300
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +322,10 @@ TextureImporter:
       name: Breya_Idle_Long_16
       rect:
         serializedVersion: 2
-        x: 69
-        y: 7
-        width: 188
-        height: 295
+        x: 0
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: Breya_Idle_Long_17
       rect:
         serializedVersion: 2
-        x: 969
-        y: 8
-        width: 187
-        height: 294
+        x: 900
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +350,10 @@ TextureImporter:
       name: Breya_Idle_Long_18
       rect:
         serializedVersion: 2
-        x: 1868
-        y: 8
-        width: 187
-        height: 294
+        x: 1800
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,10 +364,10 @@ TextureImporter:
       name: Breya_Idle_Long_19
       rect:
         serializedVersion: 2
-        x: 2766
-        y: 8
-        width: 188
-        height: 294
+        x: 2700
+        y: 0
+        width: 900
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
