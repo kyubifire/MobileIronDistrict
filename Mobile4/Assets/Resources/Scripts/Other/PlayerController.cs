@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	SpriteRenderer render;
 	public EnemyController enemy;
 
+	public Button attackBtn;
+	public Button jumpButton;
 
 	private bool onGround;
 	private Vector3 velocity;
@@ -67,21 +69,16 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
 
 			// jump
-			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
-				Debug.Log ("pressed key to jump");
-				rigidBody.AddForce (new Vector2 (0, 75));
-				onGround = false;
-				anim.SetBool ("Jumping", true);
-			}
+//			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
+//				Debug.Log ("pressed key to jump");
+//				rigidBody.AddForce (new Vector2 (0, 75));
+//				onGround = false;
+//				anim.SetBool ("Jumping", true);
+//			}
+			jumpButton.onClick.AddListener (Jump);
 			
 			// attacking
-			if (Input.GetKey (KeyCode.Space)) {
-				source.PlayOneShot (attackSound);
-				attacking = true;
-				enemy.GetComponent<EnemyController> ().setEnemyHealth (2);
-				anim.SetBool ("IsAttacking", true);
-				attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
-			}
+			attackBtn.onClick.AddListener (Attacking);
 			
 
 			if (attacking && Time.time > attackTime) {
@@ -153,8 +150,19 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Attacking() {
+		Debug.Log ("** ATTACK BUTTON PRESSED ** ");
+		source.PlayOneShot (attackSound);
+		attacking = true;
+		enemy.GetComponent<EnemyController> ().setEnemyHealth (2);
+		anim.SetBool ("IsAttacking", true);
+		attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
+	}
 
-
+	void Jump() {
+		Debug.Log ("pressed key to jump");
+		rigidBody.AddForce (new Vector2 (0, 75));
+		onGround = false;
+		anim.SetBool ("Jumping", true);
 	}
 
 	// function to test health bar in game

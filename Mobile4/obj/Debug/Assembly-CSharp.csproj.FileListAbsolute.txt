@@ -36,3 +36,4 @@ C:\Users\Gabrielle\Desktop\Mobile\MobileIronDistrict\Mobile4\Temp\bin\Debug\Unit
 C:\Users\Gabrielle\Desktop\Mobile\MobileIronDistrict\Mobile4\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 C:\Users\Gabrielle\Desktop\Mobile\MobileIronDistrict\Mobile4\obj\Debug\Assembly-CSharp.dll
 C:\Users\Gabrielle\Desktop\Mobile\MobileIronDistrict\Mobile4\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Gabrielle\Desktop\Mobile\MobileIronDistrict\Mobile4\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
