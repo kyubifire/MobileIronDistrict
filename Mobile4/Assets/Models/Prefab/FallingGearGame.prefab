@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1315808972452252}
+  m_IsPrefabParent: 1
+--- !u!1 &1315808972452252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4659297683607424}
+  - component: {fileID: 114701972097420366}
+  m_Layer: 0
+  m_Name: FallingGearGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4659297683607424
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315808972452252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.3240223, y: -1.6300001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114701972097420366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315808972452252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7d43d6c56904e7e94985a0387f63bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 45
+  falling: {fileID: 114513680771298448, guid: 84f7519c6ca5542459a95d95cd277528, type: 2}
+  soren: {fileID: 114434237867173138, guid: 1cd7bfc97cc6b4867bbfb3cc94b4b642, type: 2}
+  thought: {fileID: 114958026691164004, guid: 9c0a3d13c81ac49a7a9681852e1eeada, type: 2}
+  victory: {fileID: 1220827281374090, guid: dbfa95d620abe449bbffd4227573cb7d, type: 2}
+  defeat: {fileID: 1967348575831214, guid: c2df77a03d91943998286ced78059895, type: 2}
+  healthBar: {fileID: 1290325355037590, guid: 6dd3cdf1f4f294e6bb92d948e559cff5, type: 2}
+  player: {fileID: 114201026668020462, guid: 26fa6fdbd88ba49409c3492e2e66d9be, type: 2}
+  backgrounds: {fileID: 1812625621196106, guid: e3ded158f348a44d5bdf58051f04e03e,
+    type: 2}
+  ground: {fileID: 1290325355037590, guid: 5cf7a8c7e854b4c1f89b8d7ff548cc61, type: 2}
+  progress: {fileID: 1720293623189016, guid: 0aeb920ab5f7149bc9f7d72711466d71, type: 2}

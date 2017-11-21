@@ -1,0 +1,847 @@
+fileFormatVersion: 2
+guid: b602ed4757fa04c3bb51e2aaac6d9d0c
+timeCreated: 1506888696
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemyAttack_0
+    21300002: enemyAttack_1
+    21300004: enemyAttack_2
+    21300006: enemyAttack_3
+    21300008: enemyAttack_4
+    21300010: enemyAttack_5
+    21300012: enemyAttack_6
+    21300014: enemyAttack_7
+    21300016: enemyAttack_8
+    21300018: enemyAttack_9
+    21300020: enemyAttack_10
+    21300022: enemyAttack_11
+    21300024: enemyAttack_12
+    21300026: enemyAttack_13
+    21300028: enemyAttack_14
+    21300030: enemyAttack_15
+    21300032: enemyAttack_16
+    21300034: enemyAttack_17
+    21300036: enemyAttack_18
+    21300038: enemyAttack_19
+    21300040: enemyAttack_20
+    21300042: enemyAttack_21
+    21300044: enemyAttack_22
+    21300046: enemyAttack_23
+    21300048: enemyAttack_24
+    21300050: enemyAttack_25
+    21300052: enemyAttack_26
+    21300054: enemyAttack_27
+    21300056: enemyAttack_28
+    21300058: enemyAttack_29
+    21300060: enemyAttack_30
+    21300062: enemyAttack_31
+    21300064: enemyAttack_32
+    21300066: enemyAttack_33
+    21300068: enemyAttack_34
+    21300070: enemyAttack_35
+    21300072: enemyAttack_36
+    21300074: enemyAttack_37
+    21300076: enemyAttack_38
+    21300078: enemyAttack_39
+    21300080: enemyAttack_40
+    21300082: enemyAttack_41
+    21300084: enemyAttack_42
+    21300086: enemyAttack_43
+    21300088: enemyAttack_44
+    21300090: enemyAttack_45
+    21300092: enemyAttack_46
+    21300094: enemyAttack_47
+    21300096: enemyAttack_48
+    21300098: enemyAttack_49
+    21300100: enemyAttack_50
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemyAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4116
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_1
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 4116
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_2
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 4116
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_3
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 4116
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_4
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 4116
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_5
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 4116
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_6
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 4116
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3528
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_8
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 3528
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_9
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 3528
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_10
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 3528
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_11
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 3528
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_12
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 3528
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_13
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 3528
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2940
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_15
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 2940
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_16
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 2940
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_17
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 2940
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_18
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 2940
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_19
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 2940
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_20
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 2940
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2352
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_22
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 2352
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_23
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 2352
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_24
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 2352
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_25
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 2352
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_26
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 2352
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_27
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 2352
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1764
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_29
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1764
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_30
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1764
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_31
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 1764
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_32
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 1764
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_33
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 1764
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_34
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 1764
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1176
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_36
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1176
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_37
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1176
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_38
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 1176
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_39
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 1176
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_40
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 1176
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_41
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 1176
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 588
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_43
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 588
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_44
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 588
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_45
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 588
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_46
+      rect:
+        serializedVersion: 2
+        x: 2084
+        y: 588
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_47
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 588
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_48
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 588
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemyAttack_50
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 0
+        width: 521
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

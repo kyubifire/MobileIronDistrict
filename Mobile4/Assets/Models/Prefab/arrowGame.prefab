@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1315808972452252}
+  m_IsPrefabParent: 1
+--- !u!1 &1315808972452252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4659297683607424}
+  - component: {fileID: 114011945034571736}
+  m_Layer: 0
+  m_Name: arrowGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4659297683607424
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315808972452252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.3240223, y: -1.6300001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114011945034571736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315808972452252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296941f70c5554e3e9d0edf6d289d168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 10
+  health: 100
+  enemyHealth: 100
+  aCard: {fileID: 114421962129775134, guid: da1d66a16bfa74b86b30534457dff7fb, type: 2}
+  arrows: []
+  enemyDamage: 10
+  attackDamage: 20
+  healthBar: {fileID: 1290325355037590, guid: 6dd3cdf1f4f294e6bb92d948e559cff5, type: 2}
+  attackBar: {fileID: 1720293623189016, guid: 0aeb920ab5f7149bc9f7d72711466d71, type: 2}
+  enemyBar: {fileID: 1024627183989780, guid: 4b9459958c89a48e5a3ae6f03839b035, type: 2}
+  HUD: {fileID: 1516674382812232, guid: 0b61507b60ec647158c440566d6d2e3c, type: 2}
+  backgrounds: {fileID: 1812625621196106, guid: e3ded158f348a44d5bdf58051f04e03e,
+    type: 2}
+  instructionAccess: {fileID: 1229454939030034, guid: de9089d3fa9d141048cca11d96492419,
+    type: 2}
+  Victory: {fileID: 1220827281374090, guid: dbfa95d620abe449bbffd4227573cb7d, type: 2}
+  Defeat: {fileID: 1967348575831214, guid: c2df77a03d91943998286ced78059895, type: 2}
+  player: {fileID: 114191248910356880, guid: e720110c4d741479cb7e35c60281ca07, type: 2}
+  enemy: {fileID: 114197773299660276, guid: 8f7aa6bc146e049cd94d1c68b72b9578, type: 2}
+  consecutiveHits: 0
+  attackPoints: 0

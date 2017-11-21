@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: 94ded02c9553d01459b6bbd98ebbc0c4
+timeCreated: 1506734218
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Breya_Attack_Long_0
+    21300002: Breya_Attack_Long_1
+    21300004: Breya_Attack_Long_2
+    21300006: Breya_Attack_Long_3
+    21300008: Breya_Attack_Long_4
+    21300010: Breya_Attack_Long_5
+    21300012: Breya_Attack_Long_6
+    21300014: Breya_Attack_Long_7
+    21300016: Breya_Attack_Long_8
+    21300018: Breya_Attack_Long_9
+    21300020: Breya_Attack_Long_10
+    21300022: Breya_Attack_Long_11
+    21300024: Breya_Attack_Long_12
+    21300026: Breya_Attack_Long_13
+    21300028: Breya_Attack_Long_14
+    21300030: Breya_Attack_Long_15
+    21300032: Breya_Attack_Long_16
+    21300034: Breya_Attack_Long_17
+    21300036: Breya_Attack_Long_18
+    21300038: Breya_Attack_Long_19
+    21300040: Breya_Attack_Long_20
+    21300042: Breya_Attack_Long_21
+    21300044: Breya_Attack_Long_22
+    21300046: Breya_Attack_Long_23
+    21300048: Breya_Attack_Long_24
+    21300050: Breya_Attack_Long_25
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Breya_Attack_Long_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1208
+        width: 185
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_1
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 1206
+        width: 178
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_2
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 1205
+        width: 172
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_3
+      rect:
+        serializedVersion: 2
+        x: 2744
+        y: 1203
+        width: 170
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 902
+        width: 176
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_5
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 902
+        width: 175
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_6
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 902
+        width: 178
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_7
+      rect:
+        serializedVersion: 2
+        x: 2726
+        y: 904
+        width: 171
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 608
+        width: 175
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_9
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 603
+        width: 158
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_10
+      rect:
+        serializedVersion: 2
+        x: 2071
+        y: 601
+        width: 161
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_11
+      rect:
+        serializedVersion: 2
+        x: 3092
+        y: 601
+        width: 174
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_12
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 302
+        width: 250
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_13
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 304
+        width: 282
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_14
+      rect:
+        serializedVersion: 2
+        x: 2313
+        y: 309
+        width: 275
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_15
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 308
+        width: 302
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_16
+      rect:
+        serializedVersion: 2
+        x: 3470
+        y: 473
+        width: 56
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_17
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 360
+        width: 92
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_18
+      rect:
+        serializedVersion: 2
+        x: 2501
+        y: 355
+        width: 123
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_19
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 7
+        width: 300
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_20
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 7
+        width: 197
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_21
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 67
+        width: 112
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_22
+      rect:
+        serializedVersion: 2
+        x: 2350
+        y: 9
+        width: 172
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_23
+      rect:
+        serializedVersion: 2
+        x: 2551
+        y: 97
+        width: 95
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_24
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 9
+        width: 205
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Attack_Long_25
+      rect:
+        serializedVersion: 2
+        x: 3451
+        y: 157
+        width: 96
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

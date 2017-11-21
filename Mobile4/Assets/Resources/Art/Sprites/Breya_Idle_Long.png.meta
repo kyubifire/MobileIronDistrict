@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: 65724d5b4d6557a4ab8302797a530689
+timeCreated: 1507154320
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Breya_Idle_Long_0
+    21300002: Breya_Idle_Long_1
+    21300004: Breya_Idle_Long_2
+    21300006: Breya_Idle_Long_3
+    21300008: Breya_Idle_Long_4
+    21300010: Breya_Idle_Long_5
+    21300012: Breya_Idle_Long_6
+    21300014: Breya_Idle_Long_7
+    21300016: Breya_Idle_Long_8
+    21300018: Breya_Idle_Long_9
+    21300020: Breya_Idle_Long_10
+    21300022: Breya_Idle_Long_11
+    21300024: Breya_Idle_Long_12
+    21300026: Breya_Idle_Long_13
+    21300028: Breya_Idle_Long_14
+    21300030: Breya_Idle_Long_15
+    21300032: Breya_Idle_Long_16
+    21300034: Breya_Idle_Long_17
+    21300036: Breya_Idle_Long_18
+    21300038: Breya_Idle_Long_19
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Breya_Idle_Long_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1207
+        width: 186
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_1
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1207
+        width: 188
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_2
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 1207
+        width: 187
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_3
+      rect:
+        serializedVersion: 2
+        x: 2769
+        y: 1207
+        width: 187
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 907
+        width: 188
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_5
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 907
+        width: 188
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_6
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 907
+        width: 188
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_7
+      rect:
+        serializedVersion: 2
+        x: 2773
+        y: 907
+        width: 188
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_8
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 608
+        width: 189
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_9
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 608
+        width: 188
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_10
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 608
+        width: 188
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_11
+      rect:
+        serializedVersion: 2
+        x: 2775
+        y: 608
+        width: 188
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 307
+        width: 189
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_13
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 307
+        width: 188
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_14
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 307
+        width: 188
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_15
+      rect:
+        serializedVersion: 2
+        x: 2771
+        y: 307
+        width: 188
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_16
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 7
+        width: 188
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_17
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 8
+        width: 187
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_18
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 8
+        width: 187
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Breya_Idle_Long_19
+      rect:
+        serializedVersion: 2
+        x: 2766
+        y: 8
+        width: 188
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

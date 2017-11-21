@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7e7d43d6c56904e7e94985a0387f63bd
+timeCreated: 1507006194
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - falling: {instanceID: 0}
+  - healthBar: {fileID: 1290325355037590, guid: 6dd3cdf1f4f294e6bb92d948e559cff5,
+      type: 2}
+  - player: {fileID: 114191248910356880, guid: e720110c4d741479cb7e35c60281ca07, type: 2}
+  - backgrounds: {fileID: 1812625621196106, guid: e3ded158f348a44d5bdf58051f04e03e,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
