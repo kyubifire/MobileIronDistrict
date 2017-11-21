@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 
 public class DialogueBox : MonoBehaviour {
 	DialogueParser parser;
@@ -44,12 +45,14 @@ public class DialogueBox : MonoBehaviour {
 
 	public GameObject nameText;
 	public GameObject dText;
+	public Button continueBtn;
 
 	//public GUIStyle customStyle, customStyleName;
 
 	// Use this for initialization
 	void Start () {
 		source = GetComponent<AudioSource> ();
+		continueBtn.gameObject.SetActive (false);
 
 		dialogue = "";
 		lineNum = 0;
@@ -59,7 +62,6 @@ public class DialogueBox : MonoBehaviour {
 		leftTalking = false;
 		rightTalking = false;
 		centerTalking = false;
-
 
 		next = false;
 		isTyping = false;
@@ -89,18 +91,20 @@ public class DialogueBox : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.Space)) {
-			//dialogue = parser.GetContent(lineNum-2);
-			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
-		}
-
 		if ((next || Input.GetKeyDown(KeyCode.Space)) && playerChoosing == false) {
 			DialogueDisplay();
 		}
 
 		if (dialogue != "") {
 			SetText ();
+		} else {
+			continueBtn.gameObject.SetActive (true);
+			continueBtn.onClick.AddListener (NextScene);
 		}
+	}
+
+	void NextScene() {
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
 	public void DialogueDisplay() {
@@ -115,8 +119,7 @@ public class DialogueBox : MonoBehaviour {
 			position = "";
 			lineNum++;
 		}
-		else if (!isTyping && !playerChoosing)
-		{
+		else if (!isTyping && !playerChoosing) {
 			ResetImages();
 			name = parser.GetName(lineNum);
 			Debug.Log("new name: " + name);
@@ -126,14 +129,12 @@ public class DialogueBox : MonoBehaviour {
 			DisplayImages();
 			lineNum++;
 			StartCoroutine(TextScroll(dialogue));
-		}
-		else if (isTyping && !cancelTyping && !playerChoosing)
-		{
+		} else if (isTyping && !cancelTyping && !playerChoosing) {
 			source.PlayOneShot(click);
 			cancelTyping = true;
 		}
-		if (mode == 2)
-		{
+
+		if (mode == 2) {
 			lineNum++;
 		}
 	}
@@ -234,13 +235,11 @@ public class DialogueBox : MonoBehaviour {
 		cancelTyping = false;					// disable player ability to skip text since it is just now being displayed
 
 		while (isTyping && !cancelTyping && (letter < lineOfText.Length-1)) {
-			//displayText += lineOfText [letter];										// looks at index of character and displays that letter
-			dialogue += lineOfText[letter];
-			letter += 1;															// move on to next letter
+			dialogue += lineOfText[letter];			// looks at index of character and displays that letter
+			letter += 1;							// move on to next letter
 			yield return new WaitForSeconds(typeSpeed);								
 		}
 		dialogue = lineOfText;
-		//displayText = lineOfText;
 		isTyping = false;
 		cancelTyping = false;
 	}
@@ -252,12 +251,4 @@ public class DialogueBox : MonoBehaviour {
 		diaText.text = dialogue;
 
 	}
-
-//	void OnGUI() {
-//		// New rect (how far left gui stretch, how high up, how far right, how far down)
-//		//Dialogue Box
-//		GUI.Label (new Rect(50, Screen.height-105, Screen.width-100, 210), dialogue, customStyle); // use GUI Labels, unable to modify 
-//		//Name box
-//		GUI.Label (new Rect((Screen.width/2) - 30, Screen.height - 140, 200, 50), name, customStyleName);
-//	}
 }

@@ -1,0 +1,13 @@
+﻿Soren|"What happened to you? You’re covered in bruises!"|0|R
+Breya|"The soldiers kidnapped Emilia! They took her to the city! They destroyed my drill! I have to-"|1|L
+Soren|"Breya, Breya! Slow down!"|0|R
+Breya|"I have to get to Emilia before they hurt her."|1|L
+Soren|"It’s a two day journey to the city, you need to be prepared."|0|R
+Breya|"I know! But there’s no time!"|1|L
+Soren|"You’ll need a place to stay, somewhere to get food and drink."|0|R
+Soren|"I know someone. Her name is Sara. She works at the Copper Corset."|0|R
+Soren|"Give her this gear, she’ll help you. I’d go with you... but I’d only slow you down."|0|R
+Breya|"I know. Thank you so much Soren, for everything."|1|L
+Soren|"Also, take the drill, I finished it up while you were away."|0|R
+Soren|"It charges up a bit differently from your old one, but it still works fine."|0|R
+||0|L

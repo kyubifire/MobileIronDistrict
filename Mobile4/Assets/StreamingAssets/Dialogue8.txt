@@ -1,0 +1,18 @@
+﻿Sara|"Hello, miss. Welcome to the Copper Corset! How can I help you?"|0|R
+Breya|"I am looking for Sara. I was told she could help me get a room here."|1|L
+Sara|"Well look no further, you’re speaking to her! If I may ask, who are you?"|0|R
+Breya|"My name is Breya, I work with Soren. He told me to give you this gear."|1|L
+Sara|"Ah, yes, it’s been years since I’ve heard from him! Any friend of his, is a friend of mine!"|0|R
+Sara|"So, what brings you here?"|0|R
+Breya|"I need to get into the city, my friend is in trouble."|1|L
+Sara|"Now, that is a rather difficult request."|0|R
+Sara|"Strangely, they recently sealed the gates."|0|R
+Sara|"I haven’t heard any news, but they’re not letting anyone in or out except for the soldiers."|0|R
+Sara|"Plus, those sentinels have also become more active. I hear them late at night doing… something."|0|R
+Breya|"I need to get in, my friend is in danger! Are there any other entrance into the city?"|1|L
+Sara|"There’s an old smuggler’s route in the sewers. It’ll get you into the slums."|0|R
+Sara|"I’ll give you an old map, but after that you’re on your own."|0|R
+Sara|"But be careful, there are many things that call that sewer their home."|0|R
+Breya|"Thank you so much for your help."|1|L
+Sara|"You should rest up before heading out."|0|R
+||0|L

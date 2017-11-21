@@ -4,4 +4,40 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f41d836532d8758499d7f4e4a846daa9
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene1.unity
+    guid: 4d7fcdbd8884c3d4284c17d1a6d30acc
+  - enabled: 1
+    path: Assets/Scenes/FallingGearGame.unity
+    guid: a727a2e95aa4148d1af92d2d2e158d5e
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene2.unity
+    guid: bd1b9319afcbb274592277c84e0c1ad2
+  - enabled: 1
+    path: Assets/Scenes/MatchMobile.unity
+    guid: 7883182216d446a4786c549505f40d70
+  - enabled: 1
+    path: Assets/Scenes/Cutscene2.unity
+    guid: 7350b4adaf4d759418a78af12b893c68
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene3.unity
+    guid: b228246eccc3d834ab638a8330dd2fa8
+  - enabled: 1
+    path: Assets/Scenes/Cutscene3.unity
+    guid: d0d911d9d3fbff84c948beb2c41c082d
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene4.unity
+    guid: bc9164687b2e84a4981cc13022bcfd44
+  - enabled: 1
+    path: Assets/Scenes/Cutscene4.unity
+    guid: 41893ab0ff12d704db92a59ddf325105
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene5.unity
+    guid: e0c79bd005b6b584b84c27232b809376
+  - enabled: 1
+    path: Assets/Scenes/Cutscene5.unity
+    guid: db0d40dd738adcd44888ca8f71e6d963

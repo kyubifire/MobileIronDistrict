@@ -1,0 +1,16 @@
+﻿Soren|"Breya... Wake up!"|0|R
+Breya|"Huh?"|1|L
+Soren|"You fell asleep on the job again."|0|R
+Soren|"I know it’s been hard since your parents died last year, but I can’t do all this work with my bum leg slowing me down."|0|R
+Breya|"Sorry, I’ve just been really stressed."|1|L
+Breya|"Plus, I’ve just been having these strange dreams lately and I don’t know why."|1|L
+Soren|"Don’t take those lightly, dreams have a way of revealing secrets."|0|R
+Soren|"But enough of this superstitious talk, time to get back to work."|0|R
+Breya|"Right!"|1|L
+Soren|"Now, I remember you wanted to tell me something earlier?"|0|R
+Breya|"Yeah, I need to leave work early today. Emilia and I planned to go scavenging in the woods tonight."|1|L
+Soren|"Hmph, right. You did put in extra work yesterday… Very well."|0|R
+Soren|"I wanted to get started repairing the old drill you found scavenging last week. How long until you leave?"|0|R
+Breya|"I have about two hours."|1|L
+Soren|“Alright then. Get me my tools.”|0|R
+||0|L
