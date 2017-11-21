@@ -160,10 +160,10 @@ public class Tile : MonoBehaviour {
 		source.PlayOneShot (swapSound);
 		numSwaps += 1;
 		Debug.Log ("Num Swaps: " + numSwaps);
-		if (numSwaps >= 2) {
-			//enemyObj.GetComponent<M3_Enemy>().setPowerBar(10f);
-			numSwaps = 0;		// reset
-		}
+//		if (numSwaps >= 2) {
+//			//enemyObj.GetComponent<M3_Enemy>().setPowerBar(10f);
+//			numSwaps = 0;		// reset
+//		}
 	}
 
 	private GameObject GetAdjacent(Vector2 castDir) {
@@ -210,10 +210,16 @@ public class Tile : MonoBehaviour {
 			matchFound = true;
 		}
 		if (matchFound == true) {
-			playerObj.GetComponent<M3_Player>().SetPowerUp(10f);
+			playerObj.GetComponent<M3_Player> ().SetPowerUp (10f);
 			playerObj.GetComponent<M3_Player> ().Attack ();
 
-		}
+		} 
+
+
+		// *** SET UP ENEMY ATTACK **//
+		//else {
+		//	enemyObj.GetComponent<M3_Enemy>().   
+		//}
 	}
 
 	public void ClearAllMatches() {

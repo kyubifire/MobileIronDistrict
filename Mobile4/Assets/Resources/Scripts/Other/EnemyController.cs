@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour {
 	public GameObject bomb;
 	public Transform launchPoint;
 	public Transform launchPoint2;
-	public AudioSource source;
 
 	public float speed;
 	public float playerRange;
@@ -36,10 +35,17 @@ public class EnemyController : MonoBehaviour {
 	private float flashCounter;
 	private Color origColor;
 
+	//SFX
+	public AudioSource source;
+	public AudioClip hitSound;
+	public AudioClip attackSound;
+
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
 		render = GetComponent<SpriteRenderer> ();
+		source = GetComponent<AudioSource> ();
 
 		flashLength = 0.5f;
 		origColor = render.color;
@@ -90,6 +96,7 @@ public class EnemyController : MonoBehaviour {
 
 	public void setEnemyHealth(float damage) {
 		if (!dead) {
+			source.PlayOneShot (hitSound);
 			Debug.Log ("Amount of Damage taken from enemy health: " + damage);
 			enemyCurrHealth -= damage;
 			flashActive = true;

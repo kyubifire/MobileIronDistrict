@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	Animator anim;
 	Rigidbody2D rigidBody;
 	SpriteRenderer render;
+
 	public EnemyController enemy;
 
 	public Button attackBtn;
@@ -34,7 +35,9 @@ public class PlayerController : MonoBehaviour {
 	private float calc_playerHealth;
 	public float playerMaxHealth = 100f;
 	public float playerCurrHealth = 0f;
-	public bool dead = false;
+
+
+	public bool dead;
 	public bool damaged;
 	public bool dying;
 
@@ -54,6 +57,8 @@ public class PlayerController : MonoBehaviour {
 		origColor = render.color;
 		flashLength = 0.5f;
 
+
+		dead = false;
 		onGround = true;
 		velocity = new Vector3 (.1f, 0f, 0f);
 
@@ -69,12 +74,6 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
 
 			// jump
-//			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
-//				Debug.Log ("pressed key to jump");
-//				rigidBody.AddForce (new Vector2 (0, 75));
-//				onGround = false;
-//				anim.SetBool ("Jumping", true);
-//			}
 			jumpButton.onClick.AddListener (Jump);
 			
 			// attacking
