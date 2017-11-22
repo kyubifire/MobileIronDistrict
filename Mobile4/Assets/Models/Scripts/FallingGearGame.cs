@@ -25,19 +25,19 @@ public class FallingGearGame : MonoBehaviour
 	// Use this for initialization
 	void Start () {
 		gameStart = false;
-		player = (GameObject)Instantiate (player);
+		//player = (GameObject)Instantiate (player);
 		healthBar = (GameObject)Instantiate (healthBar);
 		healthBar.transform.position -= new Vector3 (3, 0, 0);
 
 		health = 10;
-		maxHealth = health;
+		maxHealth = 10;
 		Instantiate (backgrounds);
 		nextSpawnTime = Time.time;
 		progress = (GameObject)Instantiate (progress);
 		endGame = false;
 		thought = (thoughtBubble)Instantiate (thought);
-		wantGear = Random.Range (1, 4);
-		
+		wantGear = (int)Random.Range (1, 4);
+		thought.changeState (wantGear);
 	}
 	
 	// Update is called once per frame
@@ -58,8 +58,8 @@ public class FallingGearGame : MonoBehaviour
 		}
 
 
-		thought.type = wantGear;
-		thought.changeState (thought.type);
+
+
 
 		healthBar.transform.localScale = new Vector3 ((float) 8 * health / maxHealth, .5f, 1f);
 
@@ -83,6 +83,7 @@ public class FallingGearGame : MonoBehaviour
 					wantGear = Random.Range (1, 4);
 					Score += 1;
 					Destroy (hit.gameObject);
+					thought.changeState (wantGear);
 
 				} else if (a == 0 ) {
 					health -= 20;

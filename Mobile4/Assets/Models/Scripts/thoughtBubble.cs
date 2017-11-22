@@ -4,22 +4,23 @@ using UnityEngine;
 public class thoughtBubble : MonoBehaviour {
 	
 	public int type;
-	Animator animator;
+	Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		type = 0;
-		animator = GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		this.anim.SetInteger ("State", type);
 	}
 
 	public void changeState(int type_){
 		type = type_;
-		animator.SetInteger ("State", type);
+
 	}
 
 }
