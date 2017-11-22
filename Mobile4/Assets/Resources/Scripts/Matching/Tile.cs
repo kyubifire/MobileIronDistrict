@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class Tile : MonoBehaviour {
+	Animator anim;
 	public static Tile instance;
 	private static Color selectedColor = new Color(.5f, .5f, .5f, 1.0f);
 	private static Tile previousSelected = null;
@@ -22,29 +23,33 @@ public class Tile : MonoBehaviour {
 	public AudioClip clearSound;
 
 	// UI
-//	public GameObject winObj;
-//	public GameObject lossObj;
+	public GameObject winObj;
+	public GameObject lossObj;
 	//*********************************************************************\\
 	GameObject playerObj;
 	GameObject enemyObj;
-	public M3_GameManager manager;
 
-	public int moveCounter;  		// after # of moves, enemy power bar gets added to
 	public int multiplier;   			// After getting matches back to back, player can get a multiplier value added to attackDamage
-	public int numSwaps;    			// After 3 swaps and no matches, enemy attacks -> penalty for player
 	public bool canAttack;
 	public bool enemyAttacking;
 
 	public bool win;
 	public bool loss;
 	public bool gameEnd;
+	public bool swapped;
 
 	//GameObject timerObj;
 	//public float time;
 	//private bool timeUp;
+	public Vector3 origPos;
+	public float speed;
 	private int sceneIdx;
 
+	float z;
+	Quaternion rotation;
+
 	void Awake() {
+		anim = GetComponent<Animator> ();
 		render = GetComponent<SpriteRenderer>();
 		source = GetComponent<AudioSource> ();
     }
@@ -58,49 +63,51 @@ public class Tile : MonoBehaviour {
 		win = false;
 		loss = false;
 		gameEnd = false;
+		swapped = false;
 		//timeExpired = false;
 		//multiplier = 0;
-		moveCounter = 0;
+		speed = 10f;
+
+		rotation = transform.rotation;
+		z = rotation.eulerAngles.z;
 
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		enemyObj = GameObject.FindGameObjectWithTag("Enemy");
-		manager = GetComponent<M3_GameManager> ();
 		//Debug.Log (playerObj);
 		//Debug.Log (enemyObj);
 
-//		winObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
-//		winObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
-//
-//		lossObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
-//		lossObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+
+		winObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+		winObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+		winObj.SetActive (false);
+
+		lossObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+		lossObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+		lossObj.SetActive (false);
 
 		//InvokeRepeating ("TimeAttack", 1f, 1f);
 	}
 
 	void Update () {
+//		transform.Rotate (Vector3.up, speed * Time.deltaTime);
+//		if (!isSelected) {
+//			anim.SetBool ("Rotate", false);
+//		}
 		//time -= Time.deltaTime;
 		//Debug.Log (time);
 
-//		if (enemyObj.GetComponent<M3_Enemy> ().dead) {
-//			gameEnd = true;
-//			// display win screen
-//			Instantiate (winObj);
-//
-//		} else if (playerObj.GetComponent<M3_Player>().dead) {
-//			gameEnd = true;
-//			Instantiate (lossObj);
-//			// else display lose screen
-//		} 
-//
-//		if (gameEnd == true && Input.GetKeyDown(KeyCode.Return)) {
-//			SceneManager.LoadScene(sceneIdx + 1);
-//		}
+		if (enemyObj.GetComponent<M3_Enemy> ().dead) {
+			gameEnd = true;
+			// display win screen
+			Instantiate (winObj);
+		}  else if (playerObj.GetComponent<M3_Player>().dead){
+		gameEnd = true;
+			Instantiate (lossObj);
+			// else display lose screen
+		} 
 
-		if (moveCounter == 2) {
-			Debug.Log ("Player made two moves, filling enemy power bar");
-			enemyObj.GetComponent<M3_Enemy>().setPowerBar(10f);
-			moveCounter = 0;
-			Debug.Log ("move Counter: " + moveCounter);
+		if (gameEnd == true && Input.GetKeyDown(KeyCode.Return)) {
+			SceneManager.LoadScene(sceneIdx + 1);
 		}
 	}
 
@@ -109,7 +116,7 @@ public class Tile : MonoBehaviour {
 		render.color = selectedColor;
 		previousSelected = gameObject.GetComponent<Tile>();
 		source.PlayOneShot (selectSound);
-		Debug.Log ("Selected tile: " + previousSelected.render);
+		//Debug.Log ("Selected tile: " + previousSelected.render);
 	}
 
 	private void Deselect() {
@@ -136,7 +143,6 @@ public class Tile : MonoBehaviour {
 				//Debug.Log ("Checking Adjacents: " + GetAllAdjacentTiles ().Contains (previousSelected.gameObject));
 				if (GetAllAdjacentTiles ().Contains (previousSelected.gameObject)) {
 					SwapSprite (previousSelected.render);
-					moveCounter++;
 					previousSelected.ClearAllMatches ();
 					previousSelected.Deselect ();
 					ClearAllMatches ();
@@ -153,17 +159,26 @@ public class Tile : MonoBehaviour {
 		if (render.sprite == render2.sprite) {
 			return;
 		}
+
 		Sprite tempSprite = render2.sprite;
 		render2.sprite = render.sprite;
+		//transform.Rotate (new Vector3(0, 0, 360))
+		//instance.transform.Rotate(new Vector3(0, 0, -1 * Time.deltaTime));
 		render.sprite = tempSprite;
+		//transform.Rotate(Vector3(0,0,20f * Time.deltaTime));
 		//Debug.Log("** NEW SPRITE: " + render.sprite);
 		source.PlayOneShot (swapSound);
-		numSwaps += 1;
-		Debug.Log ("Num Swaps: " + numSwaps);
-//		if (numSwaps >= 2) {
-//			//enemyObj.GetComponent<M3_Enemy>().setPowerBar(10f);
-//			numSwaps = 0;		// reset
-//		}
+		swapped = true;
+		//anim.SetBool ("Rotate", true);
+		//transform.Rotate (new Vector3(0, 0, 360));
+
+		//rotation += Vector3.forward * 360 * Time.deltaTime;
+		////Debug.Log ("ROTATION: " + rotation);
+		//transform.rotation = Quaternion.Euler (rotation);
+
+		if (matchFound == false) {
+			enemyObj.GetComponent<M3_Enemy> ().AttackPlayer ();
+		}
 	}
 
 	private GameObject GetAdjacent(Vector2 castDir) {
@@ -208,18 +223,10 @@ public class Tile : MonoBehaviour {
 				matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
 			}
 			matchFound = true;
-		}
-		if (matchFound == true) {
-			playerObj.GetComponent<M3_Player> ().SetPowerUp (10f);
 			playerObj.GetComponent<M3_Player> ().Attack ();
+			playerObj.GetComponent<M3_Player> ().SetPowerUp (10f);
 
-		} 
-
-
-		// *** SET UP ENEMY ATTACK **//
-		//else {
-		//	enemyObj.GetComponent<M3_Enemy>().   
-		//}
+		}
 	}
 
 	public void ClearAllMatches() {
@@ -234,7 +241,10 @@ public class Tile : MonoBehaviour {
 			StopCoroutine(BoardManager.instance.FindNullTiles());
 			StartCoroutine(BoardManager.instance.FindNullTiles());
 			source.PlayOneShot (clearSound);
-			moveCounter++;
 		}
+
+		//else { // *** SET UP ENEMY ATTACK **//
+		//	enemyObj.GetComponent<M3_Enemy> ().AttackPlayer ();
+		//}
 	}
 }

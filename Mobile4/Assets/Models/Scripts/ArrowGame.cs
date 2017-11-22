@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ArrowGame : MonoBehaviour {
+
+	public Button closeBtn;
 
 	//time things, like end time and next create time, and how long a round is
 	private float timeEnd;
@@ -107,10 +110,7 @@ public class ArrowGame : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
-			//Destroy(instructions);
-			instructions.SetActive(false);
-		}
+		closeBtn.onClick.AddListener (CloseInstructions);
 		//
 		//		if (Input.GetKeyDown(KeyCode.Return)) {
 		//			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
@@ -127,7 +127,7 @@ public class ArrowGame : MonoBehaviour {
 			player.changeState (1);
 		} 
 
-		attackGauge.transform.localScale = new Vector3 (  (float)attackPoints / 6f, .5f , 1f);
+		attackGauge.transform.localScale = new Vector3 ((float)attackPoints / 6f, .5f, 1f);
 
 
 		//if you are still alive
@@ -145,8 +145,8 @@ public class ArrowGame : MonoBehaviour {
 				Instantiate (Defeat);
 				gameEnd = true;
 
-				if (Input.GetMouseButtonDown(0)) {
-					SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+				if (Input.GetMouseButtonDown (0)) {
+					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 				}
 
 
@@ -173,8 +173,8 @@ public class ArrowGame : MonoBehaviour {
 				//Victory
 				Instantiate (Victory);
 
-				if (Input.GetMouseButtonDown(0)) {
-					SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+				if (Input.GetMouseButtonDown (0)) {
+					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 				}
 
 				enemy.changeState (66);
@@ -208,27 +208,27 @@ public class ArrowGame : MonoBehaviour {
 		}
 
 		//display instructions after a round
-		if (Time.time > timeEnd + 3 && health > 0 && enemyHealth > 0) {
-			instructions.SetActive (true);
-			instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
-			//instructions.transform.position = new Vector3 (instructions.transform.position.x, instructions.transform.position.y, -8);
-			if (Input.GetMouseButtonDown (0)) {
-				instructions.SetActive (false);
-			}
-		}
+//		if (Time.time > timeEnd + 3 && health > 0 && enemyHealth > 0) {
+//			instructions.SetActive (true);
+//			instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+//			//instructions.transform.position = new Vector3 (instructions.transform.position.x, instructions.transform.position.y, -8);
+//			if (Input.GetMouseButtonDown (0)) {
+//				instructions.SetActive (false);
+//			}
+//		}
 
 
 		//after the round ends, press ENTER to start a new round
 
-		if (inGame == false && /*Input.GetKeyDown (KeyCode.Return)*/ Input.touchCount > 0 && health > 0 && enemyHealth > 0 ) {
-			timeEnd = Time.time + time;
-			nextSpawnTime =Time.time + (.3f);
-			totalCards = 0;
-			correctCards = 0;
-			//instructions.SetActive (true);
-			instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
-			//instructions.transform.position = new Vector3 (instructions.transform.position.x, instructions.transform.position.y, 20);
-		}
+//		if (inGame == false && /*Input.GetKeyDown (KeyCode.Return)*/ Input.touchCount > 0 && health > 0 && enemyHealth > 0 ) {
+//			timeEnd = Time.time + time;
+//			nextSpawnTime =Time.time + (.3f);
+//			totalCards = 0;
+//			correctCards = 0;
+//			//instructions.SetActive (true);
+//			instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+//			//instructions.transform.position = new Vector3 (instructions.transform.position.x, instructions.transform.position.y, 20);
+//		}
 
 
 		/*\\----------------------------
@@ -280,74 +280,75 @@ public class ArrowGame : MonoBehaviour {
 	}
 	*/
 
-	if (arrows.Count >= 1) {
-		if (arrows [0].transform.position.x <= -3.5) {
-			badInput ();
-			int y = 0;
-			while (y < arrows.Count) {
-				Destroy (arrows [0].gameObject);
-				arrows.RemoveAt (0);
-				y++;
-			}
-			consecutiveHits = 0;
-			attackPoints = 0;
+		if (arrows.Count >= 1) {
+			if (arrows [0].transform.position.x <= -3.5) {
+				badInput ();
+				int y = 0;
+				while (y < arrows.Count) {
+					Destroy (arrows [0].gameObject);
+					arrows.RemoveAt (0);
+					y++;
+				}
+				consecutiveHits = 0;
+				attackPoints = 0;
 
+			}
+		}
+
+		//====================================
+
+		//if this doesnt work try to remove eeverything after the and in the if statment for all the inouts
+		//so the if statemnt is just something like
+		//if ((Input.GetTouch (0).deltaPosition.y > 0
+
+
+		//=====================================
+
+		if (Input.touchCount > 0) {
+			if ((Input.GetTouch (0).deltaPosition.y > 0 && Input.GetTouch (0).deltaPosition.x < 1.5 && Input.GetTouch (0).deltaPosition.x > -1.5)) {						//checks the card and input
+				if (arrows.Count >= 1) {								//if the top of the queue matches input
+					if (arrows [0].type == 0) {								//success, else damages you
+						correctInput ();
+					} else {
+						badInput ();
+					}
+				}
+			}
+			if ((Input.GetTouch (0).deltaPosition.y < 0 && Input.GetTouch (0).deltaPosition.x < 1.5 && Input.GetTouch (0).deltaPosition.x > -1.5)) {
+				if (arrows.Count >= 1) {
+					if (arrows [0].type == 1) {
+						correctInput ();
+					} else {
+						badInput ();
+					}
+				}
+			}
+			if ((Input.GetTouch (0).deltaPosition.x < 0 && Input.GetTouch (0).deltaPosition.y < 1.5 && Input.GetTouch (0).deltaPosition.y > -1.5)) {
+				if (arrows.Count >= 1) {
+					if (arrows [0].type == 2) {
+						correctInput ();
+					} else {
+						badInput ();
+					}
+				}
+			}
+			if ((Input.GetTouch (0).deltaPosition.x > 0 && Input.GetTouch (0).deltaPosition.y < 1.5 && Input.GetTouch (0).deltaPosition.y > -1.5)) {
+				if (arrows.Count >= 1) {
+					if (arrows [0].type == 3) {
+						correctInput ();
+					} else {
+						badInput ();	
+					}
+				}
+			}
 		}
 	}
 
-	//====================================
-
-	//if this doesnt work try to remove eeverything after the and in the if statment for all the inouts
-	//so the if statemnt is just something like
-	//if ((Input.GetTouch (0).deltaPosition.y > 0
-
-
-	//=====================================
-
-	if (Input.touchCount > 0) {
-		if ((Input.GetTouch (0).deltaPosition.y > 0 && Input.GetTouch (0).deltaPosition.x < 1.5 && Input.GetTouch (0).deltaPosition.x > -1.5)) {						//checks the card and input
-			if (arrows.Count >= 1) {								//if the top of the queue matches input
-				if (arrows [0].type == 0) {								//success, else damages you
-					correctInput ();
-				} else {
-					badInput ();
-				}
-			}
-		}
-		if ((Input.GetTouch (0).deltaPosition.y < 0 && Input.GetTouch (0).deltaPosition.x < 1.5 && Input.GetTouch (0).deltaPosition.x > -1.5)) {
-			if (arrows.Count >= 1) {
-				if (arrows [0].type == 1) {
-					correctInput ();
-				} else {
-					badInput ();
-				}
-			}
-		}
-		if ((Input.GetTouch (0).deltaPosition.x < 0 && Input.GetTouch (0).deltaPosition.y < 1.5 && Input.GetTouch (0).deltaPosition.y > -1.5)) {
-			if (arrows.Count >= 1) {
-				if (arrows [0].type == 2) {
-					correctInput ();
-				} else {
-					badInput ();
-				}
-			}
-		}
-		if ((Input.GetTouch (0).deltaPosition.x > 0 && Input.GetTouch (0).deltaPosition.y < 1.5 && Input.GetTouch (0).deltaPosition.y > -1.5)) {
-			if (arrows.Count >= 1) {
-				if (arrows [0].type == 3) {
-					correctInput ();
-				} else {
-					badInput ();	
-				}
-			}
-		}
-
+	void CloseInstructions() {
+		Debug.Log ("geting rid of instructions");
+		Destroy (instructions);
+		instructions.SetActive (false);
 	}
-
-
-
-
-}
 
 //what happens if you get it right
 void correctInput(){

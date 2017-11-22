@@ -7,8 +7,6 @@ public class M3_Player : MonoBehaviour {
 	public Animator anim;
 	public Vector3 startPos;
 
-
-	public GameObject powerUpBar;
 	public ParticleSystem particles;
 	public GameObject playerHealthBar;
 
@@ -18,8 +16,9 @@ public class M3_Player : MonoBehaviour {
 	public float specialAtk = 20f;
 	public float playerMaxHealth = 100f;
 	public float playerCurrHealth = 0f;
+
 	public float barAmount = 0f;
-	public float totalAmount = 50f;
+	public float totalAmount = 30f;
 
 
 	float totalAttackTime = 1.000f;
@@ -45,28 +44,23 @@ public class M3_Player : MonoBehaviour {
 		playerCurrHealth = playerMaxHealth;
 		startPos = transform.localPosition;
 
-		// set power bar to 0 in x so bar is empty at start of game
-		//powerUpBar.transform.localScale = new Vector3(0f, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
-
 		// create reference for enemy 
 		enemyObj = GameObject.FindGameObjectWithTag("Enemy");
 
 
 		// function call to test health bars
 		//InvokeRepeating("decreasingHealth", 1f, 1f);
-
-		// function call to test power up bar
-		//InvokeRepeating("increaseBar", 1f, 1f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("Power Up: " + barAmount);
 		if (attacking && Time.time > attackTime) {
 			anim.SetBool ("IsAttacking", false);
 			attacking = false;
 		}
 
-	//	particles.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z);
+		//particles.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z);
 	}
 
 	public void setPlayerHealth(float damage) {
@@ -79,48 +73,23 @@ public class M3_Player : MonoBehaviour {
 			playerHealthBar.transform.localScale = new Vector3 (newHealth, playerHealthBar.transform.localScale.y, playerHealthBar.transform.localScale.z);
 		} else {
 			playerHealthBar.transform.localScale = new Vector3 (0f, playerHealthBar.transform.localScale.y, playerHealthBar.transform.localScale.z);
-			powerUpBar.transform.localScale = new Vector3 (0f, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
 			anim.SetBool ("Dead", true);
 			dead = true;
 		}
 	}
-
-	public void setPowerBar(float newAmount) {
-		//Debug.Log ("** adding power up bar: " + newAmount);
-		barAmount += newAmount;
-		//Debug.Log ("plaer bar amount: " + barAmount);
-		float calcAmount = barAmount / totalAmount;
-		//Debug.Log ("** adding power up bar by factor: " + calcAmount);
-
-		if (barAmount < totalAmount) {
-			powerUpBar.transform.localScale = new Vector3 (calcAmount, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
-		} 
-		if (barAmount >= totalAmount && calcAmount  == 1) {
-			transform.localPosition = startPos;
-			anim.SetBool("IsAttacking", true);
-			//source.PlayOneShot (playerAttackSound);
-			attacking = true;
-			enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (weakAtk);
-			attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
-			// reset power bar
-			//powerUpBar.transform.localScale = new Vector3 (0, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
-			barAmount = 0;
-		}
-	}
-
+		
 	public void SetPowerUp(float newAmount) {
-		if (barAmount < 50) {
-			source.volume = 0.25f;
-			source.PlayOneShot (powerFill);
-			barAmount += newAmount;
-			enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (weakAtk);
-			float calcAmount = barAmount / totalAmount;
-		} else if (barAmount >= 50) {   // get 5 matches
+		Debug.Log ("** IN SET POWER UP **");
+		//source.PlayOneShot (powerFill);
+		barAmount += newAmount;
+		enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (weakAtk);
+		if (barAmount >= 50) {   // get 5 matches
+			Debug.Log("Power Up activated!!");
 			source.volume = 5f;
 			particles.Play ();
 			source.PlayOneShot (completeFill);
 		}
-		barAmount = 0;
+		//barAmount = 0;
 	}
 
 	public void Attack() {
@@ -130,21 +99,26 @@ public class M3_Player : MonoBehaviour {
 		attacking = true;
 		enemyObj.GetComponent<M3_Enemy> ().setEnemyHealth (weakAtk);
 		attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
+		//StartCoroutine(playSound());
+	
 	}
+//
+//	IEnumerator playSound() {
+//		source.clip = playerAttackSound;
+//		source.Play ();
+//		yield return new WaitForSeconds (source.clip.length/2);
+//	
+//
+//		source.clip = powerFill;
+//		source.Play ();
+//
+//	}
 
 	// function to test health bar in game
 	void decreasingHealth() {
 		Debug.Log ("testing health bar");
 		playerCurrHealth -= 10f;
 		Debug.Log("player current health: " + playerCurrHealth);
-		playerHealthBar.transform.localScale = new Vector3 (barAmount, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
-	}
-
-	// function to test power up bar
-	void increaseBar() {
-		Debug.Log ("testing player power bar");
-		barAmount += 10f;
-		Debug.Log ("current player bar amount: " + barAmount);
-		powerUpBar.transform.localScale = new Vector3 (barAmount, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
+		//playerHealthBar.transform.localScale = new Vector3 (barAmount, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
 	}
 }

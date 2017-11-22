@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour {
 
 	public GameObject missile;
 	public GameObject bomb;
+	public GameObject fist;
 	public Transform launchPoint;
 	public Transform launchPoint2;
 
@@ -20,6 +21,9 @@ public class EnemyController : MonoBehaviour {
 
 	private float bombCounter;
 	public float waitBetweenBombs;
+
+	private float punchCounter;
+	public float waitBetweenPunches;
 
 	public int attackDamage;  // regular attack outside of missiles
 
@@ -56,17 +60,21 @@ public class EnemyController : MonoBehaviour {
 		enemyCurrHealth = enemyMaxHealth;
 		attackDamage = 10;
 		onGround = true;
+
+		//fist.SetActive (false);
 		//InvokeRepeating("decreasingHealth", 1f, 1f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (!dead) {
-			Debug.Log ("ENEMY HEALTH: " + enemyCurrHealth);
-			ShootMissileAtPlayer ();
-			DropBomb ();
+			//Debug.Log ("ENEMY HEALTH: " + enemyCurrHealth);
+			//ShootMissiles();
+			//DropBomb ();
+			//PunchPlayer ();
 			shotCounter -= Time.deltaTime;
 			bombCounter -= Time.deltaTime;
+			punchCounter -= Time.deltaTime;
 
 			// make player flash red when hit by changing RGB values of sprite
 			if (flashActive) {
@@ -90,8 +98,66 @@ public class EnemyController : MonoBehaviour {
 				anim.speed = 2.0f;
 			}
 		}
+	}
 
 
+
+	IEnumerator GetReady() {
+		yield return new WaitForSeconds (2);
+		anim.SetBool ("Prepping", true);
+	}
+
+	// set a timer for sentinel to perodically pause leaving him open for attack
+	IEnumerator Paused() {
+		Debug.Log ("Sentinel is taking a break");
+		anim.SetBool ("Paused", true);
+		yield return new WaitForSeconds (2);
+		anim.SetBool ("Paused", false);
+	}
+
+//	IEnumerator Attack () {
+//		anim.SetBool ("IsAttack", true);
+//
+//	}
+
+//	void Attack() {
+//		anim.SetBool ("Attacking", true);
+//		Pun
+//	}
+
+	void PunchPlayer() {
+		anim.SetBool ("IsAttacking", true);
+//		fist.SetActive (true);
+		if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x && player.transform.position.x > transform.position.x - playerRange && punchCounter < 0) {
+			Instantiate (fist, launchPoint.position, launchPoint.rotation);
+			punchCounter = waitBetweenPunches; //reset counter
+		}
+	}
+//
+//	void ShootMissiles() {
+//		// right side
+////		if (transform.localScale.x < 0 && player.transform.position.x > transform.position.x && player.transform.position.x < transform.position.x + playerRange) {
+////			Instantiate (missile, launchPoint.position, launchPoint.rotation);
+////		}
+//		anim.SetBool("IsAttacking", true);
+//		// left side
+//		if (!dead) {
+//			if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x && player.transform.position.x > transform.position.x - playerRange && shotCounter < 0) {
+//				Instantiate (missile, launchPoint.position, launchPoint.rotation);
+//				shotCounter = waitBetweenShots; //reset counter
+//			}
+//		}
+//	}
+
+	void DropBomb() {
+		Debug.Log ("DROPPING BOMB");
+		if (!dead) {
+			if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x && player.transform.position.x > transform.position.x - playerRange && bombCounter < 0) {
+				Instantiate (bomb, launchPoint2.position, launchPoint2.rotation);
+				bombCounter = waitBetweenBombs; //reset counter
+				Debug.Log("DROPPED BOMB");
+			}
+		}
 	}
 
 	public void setEnemyHealth(float damage) {
@@ -110,32 +176,6 @@ public class EnemyController : MonoBehaviour {
 				enemyBar.transform.localScale = new Vector3 (0f, enemyBar.transform.localScale.y, enemyBar.transform.localScale.z);
 				anim.SetBool ("Dead", true);
 				dead = true;
-			}
-		}
-	}
-
-	void ShootMissileAtPlayer() {
-		// right side
-//		if (transform.localScale.x < 0 && player.transform.position.x > transform.position.x && player.transform.position.x < transform.position.x + playerRange) {
-//			Instantiate (missile, launchPoint.position, launchPoint.rotation);
-//		}
-
-		// left side
-		if (!dead) {
-			if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x && player.transform.position.x > transform.position.x - playerRange && shotCounter < 0) {
-				Instantiate (missile, launchPoint.position, launchPoint.rotation);
-				shotCounter = waitBetweenShots; //reset counter
-			}
-		}
-	}
-
-	void DropBomb() {
-		Debug.Log ("DROPPING BOMB");
-		if (!dead) {
-			if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x && player.transform.position.x > transform.position.x - playerRange && bombCounter < 0) {
-				Instantiate (bomb, launchPoint2.position, launchPoint2.rotation);
-				bombCounter = waitBetweenBombs; //reset counter
-				Debug.Log("DROPPED BOMB");
 			}
 		}
 	}

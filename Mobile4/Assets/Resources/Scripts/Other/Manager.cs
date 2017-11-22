@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour {
-	public Camera camera;
 	public PlayerController player;
 	public EnemyController enemy;
 
+	public GameObject instructions;
+	public Button closeBtn;
 	public int chargeAmount;
 	//public GameObject specialAtkBG;
 
@@ -28,7 +30,13 @@ public class Manager : MonoBehaviour {
 
 		chargeAmount = 0;
 
+		closeBtn.onClick.AddListener (CloseInstructions);
 
+
+	}
+
+	void CloseInstructions() {
+		instructions.SetActive (false);
 	}
 
 //	void SpecialAttack() {

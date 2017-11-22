@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class M3_GameManager : MonoBehaviour {
 	public static M3_GameManager instance;
-	public GameObject tile;
-	public M3_Player player;
-	public M3_Enemy enemy;
+	public Tile tile;
+	public M3_Enemy enemyObj;
+	public M3_Player playerObj;
+
 	public Button closeBtn;	
+	public Button reloadBtn;
+	//public Button moveOnBtn;
 
 	// UI
-	public GameObject winObj;
-	public GameObject lossObj;
 	public GameObject instructions;
+//	public GameObject winObj;
+//	public GameObject lossObj;
 
 	public bool gameOver;
 	public bool gameStarted;
@@ -26,64 +29,60 @@ public class M3_GameManager : MonoBehaviour {
 	void Start () {
 		instance = GetComponent<M3_GameManager> ();
 
-		gameOver = false;
 		gameStarted = false;
 
-		enemy = GetComponent<M3_Enemy> ();
-		player = GetComponent<M3_Player> ();
-
-
-		gameOver = tile.GetComponent<Tile> ().gameEnd;
 		sceneIdx = SceneManager.GetActiveScene ().buildIndex;
 
-		instructions.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
-		instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
-			
-		winObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
-		winObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+		//tile = GetComponent<Tile> ();
+		playerObj = GetComponent<M3_Player> ();
+		enemyObj = GetComponent<M3_Enemy> ();
+//
+//		instructions.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+//		instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+//
+//		winObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+//		winObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+//
+//		winObj.SetActive (false);
+//
+//		lossObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+//		lossObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
+//
+//		lossObj.SetActive (false);
 
-		lossObj.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
-		lossObj.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
+		
 		Debug.Log ("** IN GAME MANAGER **");
-//		if (closeBtn.onClick) {
-//			Debug.Log ("** pressing buttons in game manager ** ");
-//			instructions.SetActive(false);
-//			gameStarted = true;
-//		}
-
+		Debug.Log ("IS GAME OVER FOR MANAGER? " + gameOver);
 		closeBtn.onClick.AddListener (CloseInstructions);
+		reloadBtn.onClick.AddListener (ReloadLevel);
 
-		if (gameOver) {
-			GameCheck ();
-		}
 
+//		if (tile.gameEnd == true) {
+//			Debug.Log ("GAME IS OVER************");
+//			if (enemyObj.GetComponent<M3_Enemy> ().dead) {
+//				Debug.Log ("showing win screen");
+//				// display win screen
+//				Instantiate (winObj);
+//			} else if (playerObj.GetComponent<M3_Player> ().dead) {
+//				Debug.Log ("showing loss screen");
+//				Instantiate (lossObj);
+//				// else display lose screen
+//			} 
+//		}
 	}
 
 	void CloseInstructions() {
 		Debug.Log ("** CLOSE BUTTON CLICKED** ");
 		instructions.SetActive(false);
+		gameStarted = true;
 	}
 
-	void GameCheck() {
-		if (enemy.GetComponent<M3_Enemy> ().dead) {
-			Debug.Log ("You Won!!");
-			// display win screen
-			Instantiate (winObj);
-
-		}
-
-		if (player.GetComponent<M3_Player>().dead) {
-			Debug.Log ("You Lost!!");
-			Instantiate (lossObj);
-			// else display lose screen
-		} 
-
-		if (Input.GetKeyDown(KeyCode.Return)) {
-			SceneManager.LoadScene(sceneIdx + 1);
-		}
+	void ReloadLevel() {
+		SceneManager.LoadScene (sceneIdx);
 	}
 }

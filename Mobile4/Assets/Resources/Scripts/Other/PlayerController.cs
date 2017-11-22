@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour {
 	public int chargeAmount;
 
 	public AudioSource source;
-	public AudioSource source2;
 	public AudioClip lowHealth;
 	public AudioClip attackSound;
 
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		source = GetComponent<AudioSource> ();
-		source2 = GetComponent<AudioSource> ();
 		anim = GetComponent<Animator> ();
 		rigidBody = GetComponent<Rigidbody2D> ();
 		render = GetComponent<SpriteRenderer> ();
@@ -71,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!dead) {
-			Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
+			//Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
 
 			// jump
 			jumpButton.onClick.AddListener (Jump);
