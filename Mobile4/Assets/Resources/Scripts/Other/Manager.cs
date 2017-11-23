@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour {
 	public PlayerController player;
-	public EnemyController enemy;
+	public SentinelScript enemy;
 
 	public GameObject instructions;
 	public Button closeBtn;

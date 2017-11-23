@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MatchMobile.unity
+- path: Assets/Scenes/ArrowMobile.unity
   isLoaded: 1
   isActive: 1

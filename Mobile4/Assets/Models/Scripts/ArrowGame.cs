@@ -58,8 +58,6 @@ public class ArrowGame : MonoBehaviour {
 	private bool inGame;
 	private bool gameEnd;
 
-
-
 	//tracks how many hits in a row and how much your gauge has charged
 	public int consecutiveHits;
 	public int attackPoints;
@@ -71,6 +69,7 @@ public class ArrowGame : MonoBehaviour {
 	public AudioClip badArrow;
 
 	public int sceneIdx;
+
 	// Use this for initialization
 	void Start () {
 
@@ -110,12 +109,8 @@ public class ArrowGame : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		closeBtn.onClick.AddListener (Click);
 		closeBtn.onClick.AddListener (CloseInstructions);
-		//
-		//		if (Input.GetKeyDown(KeyCode.Return)) {
-		//			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
-		//		}
-		//
 
 		//when the attack bar is full you attack the enemy and it resets the bar
 		if (attackPoints >= 50) {
@@ -148,8 +143,6 @@ public class ArrowGame : MonoBehaviour {
 				if (Input.GetMouseButtonDown (0)) {
 					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 				}
-
-
 				//readjust the health bar
 				healthGauge.transform.localScale = new Vector3 ((float)7.5 * health / maxHealth, .5f, 1f);
 
@@ -160,9 +153,7 @@ public class ArrowGame : MonoBehaviour {
 					arrows.RemoveAt (0);
 				}
 			}
-
 		}
-
 
 		if (enemyHealth > 0) {
 			enemyGauge.transform.localScale = new Vector3 (((float)12.4 * enemyHealth / enemyMaxHealth), .5f, 1f);
@@ -190,8 +181,7 @@ public class ArrowGame : MonoBehaviour {
 				}
 			}
 		}
-
-
+			
 		//THIIS IS EWHERE WE CREATE CARDS
 
 		if (Time.time <= timeEnd && Time.time >= nextSpawnTime) {		//every round within the time limit it will spawn a arrow card
@@ -207,79 +197,6 @@ public class ArrowGame : MonoBehaviour {
 			}
 		}
 
-		//display instructions after a round
-//		if (Time.time > timeEnd + 3 && health > 0 && enemyHealth > 0) {
-//			instructions.SetActive (true);
-//			instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
-//			//instructions.transform.position = new Vector3 (instructions.transform.position.x, instructions.transform.position.y, -8);
-//			if (Input.GetMouseButtonDown (0)) {
-//				instructions.SetActive (false);
-//			}
-//		}
-
-
-		//after the round ends, press ENTER to start a new round
-
-//		if (inGame == false && /*Input.GetKeyDown (KeyCode.Return)*/ Input.touchCount > 0 && health > 0 && enemyHealth > 0 ) {
-//			timeEnd = Time.time + time;
-//			nextSpawnTime =Time.time + (.3f);
-//			totalCards = 0;
-//			correctCards = 0;
-//			//instructions.SetActive (true);
-//			instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
-//			//instructions.transform.position = new Vector3 (instructions.transform.position.x, instructions.transform.position.y, 20);
-//		}
-
-
-		/*\\----------------------------
-								 * -----------------------------
-								 *----- IMPORTANT: 	------------
-								 *-----  UP == 0	------------
-								 *-----  Down == 1	------------
-								 *-----  Left == 2	------------
-								 *-----  Right == 3	------------
-								 * -----------------------------
-								 * ----------------------------
-								*/
-
-		/*if(Input.GetKeyDown(KeyCode.UpArrow)){						//checks the card and input
-		if (arrows.Count >= 1) {								//if the top of the queue matches input
-			if (arrows [0].type == 0) {								//success, else damages you
-				correctInput();
-			} else {
-				badInput ();
-			}
-		}
-	}
-	if(Input.GetKeyDown(KeyCode.DownArrow)){
-		if (arrows.Count >= 1) {
-			if (arrows [0].type == 1) {
-				correctInput ();
-			} else {
-				badInput ();
-			}
-		}
-	}
-	if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-		if (arrows.Count >= 1) {
-			if (arrows [0].type == 2) {
-				correctInput ();
-			} else {
-				badInput ();
-			}
-		}
-	}
-	if (Input.GetKeyDown (KeyCode.RightArrow)) {
-		if (arrows.Count >= 1) {
-			if (arrows [0].type == 3) {
-				correctInput ();
-			} else {
-				badInput ();	
-			}
-		}
-	}
-	*/
-
 		if (arrows.Count >= 1) {
 			if (arrows [0].transform.position.x <= -3.5) {
 				badInput ();
@@ -291,7 +208,6 @@ public class ArrowGame : MonoBehaviour {
 				}
 				consecutiveHits = 0;
 				attackPoints = 0;
-
 			}
 		}
 
@@ -344,30 +260,33 @@ public class ArrowGame : MonoBehaviour {
 		}
 	}
 
+	//what happens if you get it right
+	void correctInput(){
+		source.PlayOneShot (arrowSound);
+		Destroy (arrows [0].gameObject);
+		arrows.RemoveAt (0);
+		consecutiveHits += 1;
+		attackPoints += consecutiveHits;
+		correctCards += 1;
+	}
+	//what happens when you get it wrong
+	void badInput(){
+		source.PlayOneShot (badArrow);
+		Destroy (arrows [0].gameObject);
+		arrows.RemoveAt (0);
+		health -= enemyDamage;
+		consecutiveHits = 0;
+		enemy.changeState (1);
+	}
+
 	void CloseInstructions() {
 		Debug.Log ("geting rid of instructions");
-		Destroy (instructions);
+		//Destroy (instructions);
+		instructionAccess.SetActive(false);
 		instructions.SetActive (false);
 	}
 
-//what happens if you get it right
-void correctInput(){
-	source.PlayOneShot (arrowSound);
-	Destroy (arrows [0].gameObject);
-	arrows.RemoveAt (0);
-	consecutiveHits += 1;
-	attackPoints += consecutiveHits;
-	correctCards += 1;
-
-}
-//what happens when you get it wrong
-
-void badInput(){
-	source.PlayOneShot (badArrow);
-	Destroy (arrows [0].gameObject);
-	arrows.RemoveAt (0);
-	health -= enemyDamage;
-	consecutiveHits = 0;
-	enemy.changeState (1);
-}
+	void Click() {
+		Debug.Log("You have clicked the button!");
+	}
 }

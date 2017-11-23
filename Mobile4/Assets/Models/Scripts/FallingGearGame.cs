@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class FallingGearGame : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class FallingGearGame : MonoBehaviour
 	private bool endGame;
 	private bool gameStart;
 
+	public GameObject instructions;
+	public Button closeBtn;
+
 	// Use this for initialization
 	void Start () {
 		gameStart = false;
@@ -38,63 +42,66 @@ public class FallingGearGame : MonoBehaviour
 		thought = (thoughtBubble)Instantiate (thought);
 		wantGear = (int)Random.Range (1, 4);
 		thought.changeState (wantGear);
+
+		falling.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f); //gears too large, shrink them
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		progress.transform.localScale = new Vector3 ((float)Score / 2f, .5f, 1f);
+	void Update () { 
 
-		if (Score >= 10 && !endGame) {
-			//VICTORY
-			endGame = true;
-			Instantiate (victory);
-		}
+		closeBtn.onClick.AddListener (CloseInstructions);
 
-		if ((health <= 0) && !endGame) {
-			//DEATH
-			endGame = true;
-			Instantiate (defeat);
-			Destroy (healthBar);
-		}
+		if (gameStart == true) {
 
+			progress.transform.localScale = new Vector3 ((float)Score / 2f, .5f, 1f);
 
+			if (Score >= 10 && !endGame) {
+				//VICTORY
+				endGame = true;
+				Instantiate (victory);
+			}
 
+			if ((health <= 0) && !endGame) {
+				//DEATH
+				endGame = true;
+				Instantiate (defeat);
+				Destroy (healthBar);
+			}
+			healthBar.transform.localScale = new Vector3 ((float) 8 * health / maxHealth, .5f, 1f);
 
+			if (Time.time >= nextSpawnTime && !endGame) {
+				Instantiate (falling);
+				nextSpawnTime += Random.Range (.3f, .7f);
+			}
 
-		healthBar.transform.localScale = new Vector3 ((float) 8 * health / maxHealth, .5f, 1f);
+			//this check for touch controls
+			if (Input.touchCount > 0) {
+				Vector3 worldPos = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
+				Vector2 touchPos = new Vector2 (worldPos.x, worldPos.y);
 
-	
-		if (Time.time >= nextSpawnTime && !endGame) {
-			Instantiate (falling);
-			nextSpawnTime += Random.Range (.3f, .7f);
-		}
-	
-		//this check for touch controls
-		if (Input.touchCount > 0) {
-			Vector3 worldPos = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
-			Vector2 touchPos = new Vector2 (worldPos.x, worldPos.y);
-
-
-			//on click it checks if overlaos with gear scripted object
-			var hit = Physics2D.OverlapPoint (touchPos);
-			if (hit && hit.gameObject.GetComponent<Gear> () != null) {
-				int a = hit.gameObject.GetComponent <Gear> ().type;
-				if (a == wantGear) {
-					wantGear = Random.Range (1, 4);
-					Score += 1;
-					Destroy (hit.gameObject);
-					thought.changeState (wantGear);
-
-				} else if (a == 0 ) {
-					health -= 20;
-					Destroy (hit.gameObject);
-
-				} else  {
-					health -= 10;
-					Destroy (hit.gameObject);
+				// on click it checks if overlaos with gear scripted object
+				var hit = Physics2D.OverlapPoint (touchPos);
+				if (hit && hit.gameObject.GetComponent<Gear> () != null) {
+					int a = hit.gameObject.GetComponent <Gear> ().type;
+					if (a == wantGear) {
+						wantGear = Random.Range (1, 4);
+						Score += 1;
+						Destroy (hit.gameObject);
+						thought.changeState (wantGear);
+					} else if (a == 0 ) {
+						health -= 20;
+						Destroy (hit.gameObject);
+					} else  {
+						health -= 10;
+						Destroy (hit.gameObject);
+					}
 				}
 			}
-				
 		}
+	}
+
+	void CloseInstructions() {
+		instructions.SetActive (false);
+		gameStart = true;
 	}
 }

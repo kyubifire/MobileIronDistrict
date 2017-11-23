@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rigidBody;
 	SpriteRenderer render;
 
-	public EnemyController enemy;
+	//public SentinelScript enemy;
 
 	public Button attackBtn;
 	public Button jumpButton;
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("** ATTACK BUTTON PRESSED ** ");
 		source.PlayOneShot (attackSound);
 		attacking = true;
-		enemy.GetComponent<EnemyController> ().setEnemyHealth (2);
+		//enemy.GetComponent<SentinelScript> ().setEnemyHealth (2);
 		anim.SetBool ("IsAttacking", true);
 		attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
 	}
