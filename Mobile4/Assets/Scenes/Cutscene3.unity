@@ -209,10 +209,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 822329359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8029498bb11ffd648b542b4cecb65bd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 326156e95c7f671469fab10e8199aa0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoToPlay: {fileID: 32900000, guid: 0848e75e3512b8a4c8a6eec8a126c015, type: 3}
+  videoToPlay: {fileID: 32900000, guid: b310f785ff1f5724491ddfe2e3a1b178, type: 3}
 --- !u!1 &1228603545
 GameObject:
   m_ObjectHideFlags: 0
