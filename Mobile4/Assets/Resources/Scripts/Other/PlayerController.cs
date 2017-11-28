@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rigidBody;
 	SpriteRenderer render;
 
+	public SentinelScript senPrefab;
+
 	//public SentinelScript enemy;
 
 	public Button attackBtn;
@@ -55,7 +57,6 @@ public class PlayerController : MonoBehaviour {
 		origColor = render.color;
 		flashLength = 0.5f;
 
-
 		dead = false;
 		onGround = true;
 		velocity = new Vector3 (.1f, 0f, 0f);
@@ -63,20 +64,21 @@ public class PlayerController : MonoBehaviour {
 		playerCurrHealth = playerMaxHealth;
 		attackDamage = 10;
 
+		senPrefab = FindObjectOfType<SentinelScript> ();
+
 		//InvokeRepeating("decreasingHealth", 1f, 1f);
 	}
 
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log ("Breya Attack Damage: " + attackDamage);
 		if (!dead) {
 			//Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
 
 			// jump
 			jumpButton.onClick.AddListener (Jump);
-			
 			// attacking
 			attackBtn.onClick.AddListener (Attacking);
-			
 
 			if (attacking && Time.time > attackTime) {
 				anim.SetBool ("IsAttacking", false);
@@ -98,8 +100,6 @@ public class PlayerController : MonoBehaviour {
 				flashCounter -= Time.deltaTime;
 			}
 		}
-
-
 	}
 
 	public void setPlayerHealth(float damage) {
@@ -137,6 +137,13 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void Jump() {
+		anim.SetBool ("Jumping", true);
+		Debug.Log ("pressed key to jump");
+		rigidBody.AddForce (new Vector2 (0, 5));
+		onGround = false;
+	}
+
 	void OnTriggerEnter2D(Collider2D other) {
 		Debug.Log ("Player Attack Damage: " + attackDamage);
 		if (other.tag == "Enemy") {
@@ -150,16 +157,10 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("** ATTACK BUTTON PRESSED ** ");
 		source.PlayOneShot (attackSound);
 		attacking = true;
-		//enemy.GetComponent<SentinelScript> ().setEnemyHealth (2);
+		senPrefab.GetComponent<SentinelScript> ().setEnemyHealth (2f);
 		anim.SetBool ("IsAttacking", true);
-		attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
-	}
-
-	void Jump() {
-		Debug.Log ("pressed key to jump");
-		rigidBody.AddForce (new Vector2 (0, 75));
-		onGround = false;
-		anim.SetBool ("Jumping", true);
+		// set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
+		attackTime = Time.time + totalAttackTime;
 	}
 
 	// function to test health bar in game
