@@ -4,9 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class ArrowGame : MonoBehaviour {
-
-	public Button closeBtn;
-
+	
 	//time things, like end time and next create time, and how long a round is
 	private float timeEnd;
 	private float nextSpawnTime;
@@ -69,6 +67,10 @@ public class ArrowGame : MonoBehaviour {
 	public AudioClip badArrow;
 
 	public int sceneIdx;
+	public Button moveOnButton;
+	public Button reloadButton1;
+	public Button reloadButton2;
+	public Button closeBtn;
 
     // Swipe Stuff
     Vector2 startPos;
@@ -148,7 +150,8 @@ public class ArrowGame : MonoBehaviour {
 
 				//create death display
 
-				Instantiate (Defeat);
+				//Instantiate (Defeat);
+				Defeat.SetActive(true);
 				gameEnd = true;
 
 				if (Input.GetMouseButtonDown (0)) {
@@ -173,7 +176,8 @@ public class ArrowGame : MonoBehaviour {
 			if (!gameEnd) {
 				gameEnd = true;
 				//Victory
-				Instantiate (Victory);
+				//Instantiate (Victory);
+				Victory.SetActive(true);
 
 				if (Input.GetMouseButtonDown (0)) {
 					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);

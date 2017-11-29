@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class FallingGearGame : MonoBehaviour
 {
@@ -24,8 +25,12 @@ public class FallingGearGame : MonoBehaviour
 	private bool gameStart;
 
 	public GameObject instructions;
+	public Button moveOnButton;
+	public Button reloadButton1;
+	public Button reloadButton2;
 	public Button closeBtn;
 
+	private int sceneIdx;
 	// Use this for initialization
 	void Start () {
 		gameStart = false;
@@ -44,12 +49,18 @@ public class FallingGearGame : MonoBehaviour
 		thought.changeState (wantGear);
 
 		falling.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f); //gears too large, shrink them
+
+		sceneIdx = SceneManager.GetActiveScene ().buildIndex;
 	}
 	
 	// Update is called once per frame
 	void Update () { 
 
 		closeBtn.onClick.AddListener (CloseInstructions);
+
+		if (endGame && Input.GetMouseButton (0)) { // back up if win/lose dont work until new phone is activated to test mobibe build -- gabby
+			SceneManager.LoadScene(sceneIdx + 1);
+		}
 
 		if (gameStart == true) {
 
@@ -58,13 +69,15 @@ public class FallingGearGame : MonoBehaviour
 			if (Score >= 10 && !endGame) {
 				//VICTORY
 				endGame = true;
-				Instantiate (victory);
+				//Instantiate (victory);
+				victory.SetActive(true);
 			}
 
 			if ((health <= 0) && !endGame) {
 				//DEATH
 				endGame = true;
-				Instantiate (defeat);
+				//Instantiate (defeat);
+				defeat.SetActive(true);
 				Destroy (healthBar);
 			}
 			healthBar.transform.localScale = new Vector3 ((float) 8 * health / maxHealth, .5f, 1f);
