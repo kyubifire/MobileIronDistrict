@@ -71,8 +71,11 @@ public class DialogueBox : MonoBehaviour {
 		name = parser.GetName (lineNum);
 		Debug.Log ("First character Name: " + name);
 		pose = parser.GetPose(lineNum);
+		Debug.Log ("First character image: " + pose);
 		position = parser.GetPosition (lineNum);
+		Debug.Log ("First character position: " + position);
 		dialogue = parser.GetContent (lineNum);
+		Debug.Log ("First character Name: " + name);
 		DisplayImages ();
 		if (!isTyping) {
 			StartCoroutine (TextScroll (dialogue));
@@ -97,8 +100,7 @@ public class DialogueBox : MonoBehaviour {
 
 		if (dialogue != "") {
 			SetText ();
-		} 
-		else {
+		} else {
 			continueBtn.gameObject.SetActive (true);
 			//continueBtn.onClick.AddListener (NextScene);
 			//if (Input.anyKey) {
@@ -249,9 +251,11 @@ public class DialogueBox : MonoBehaviour {
 	}
 
 	void SetText() {
+		Debug.Log ("** SETTING TEXT** ");
 		Text nText = nameText.GetComponent<Text> ();
 		Text diaText = dText.GetComponent<Text> ();
 		nText.text = name;
 		diaText.text = dialogue;
+
 	}
 }

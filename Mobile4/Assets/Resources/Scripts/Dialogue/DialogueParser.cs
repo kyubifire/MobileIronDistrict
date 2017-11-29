@@ -91,7 +91,7 @@ public class DialogueParser : MonoBehaviour {
 		for (int i = 0; i < lines.Count; i++) {
 			string imageName = lines [i].name;
 			//Debug.Log("Assigning imageName: " + imageName);
-			string imageFile = "Art/Dialogue/" + imageName;
+			string imageFile = "Art/Sprites/Dialogue/" + imageName;
 			//Debug.Log ("** sprite to be used:" + imageFile);
 			Sprite image = (Sprite) Resources.Load(imageFile, typeof(Sprite));
 			//Debug.Log ("IMAGE TO BE USED: "+ image);
