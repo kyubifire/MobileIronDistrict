@@ -97,15 +97,19 @@ public class DialogueBox : MonoBehaviour {
 
 		if (dialogue != "") {
 			SetText ();
-		} else {
+		} 
+		else {
 			continueBtn.gameObject.SetActive (true);
-			continueBtn.onClick.AddListener (NextScene);
+			//continueBtn.onClick.AddListener (NextScene);
+			//if (Input.anyKey) {
+			//	SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+			//}
 		}
 	}
 
-	void NextScene() {
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
-	}
+	//void NextScene() {
+	//	SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+	//}
 
 	public void DialogueDisplay() {
 		source.PlayOneShot(click);
@@ -249,6 +253,5 @@ public class DialogueBox : MonoBehaviour {
 		Text diaText = dText.GetComponent<Text> ();
 		nText.text = name;
 		diaText.text = dialogue;
-
 	}
 }
