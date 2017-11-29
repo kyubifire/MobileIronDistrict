@@ -70,12 +70,22 @@ public class ArrowGame : MonoBehaviour {
 
 	public int sceneIdx;
 
-	// Use this for initialization
-	void Start () {
+    // Swipe Stuff
+    Vector2 startPos;
+    Vector2 endPos;
+    Vector2 curSwipe;
+
+    private bool up, down, left, right, swiping;
+
+    // Use this for initialization
+    void Start () {
 
 		sceneIdx = SceneManager.GetActiveScene ().buildIndex;
-
-		attackPoints = 0;
+        up = false;
+        down = false;
+        left = false;
+        right = false;
+        attackPoints = 0;
 		totalCards = 0;
 		correctCards = 0;
 		//this sets how long befor the game stops instantiating arrows
@@ -104,8 +114,9 @@ public class ArrowGame : MonoBehaviour {
 		instructions.transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
 		instructions.transform.position = new Vector3 (Screen.width/768f, Screen.height/768f, 0f);
 
-
-	}
+        inGame = true;
+        timeEnd = Time.time + time;
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -211,54 +222,121 @@ public class ArrowGame : MonoBehaviour {
 			}
 		}
 
-		//====================================
+        //====================================
 
-		//if this doesnt work try to remove eeverything after the and in the if statment for all the inouts
-		//so the if statemnt is just something like
-		//if ((Input.GetTouch (0).deltaPosition.y > 0
+        //if this doesnt work try to remove eeverything after the and in the if statment for all the inouts
+        //so the if statemnt is just something like
+        //if ((Input.GetTouch (0).deltaPosition.y > 0
 
 
-		//=====================================
+        //=====================================
 
-		if (Input.touchCount > 0) {
-			if ((Input.GetTouch (0).deltaPosition.y > 0 && Input.GetTouch (0).deltaPosition.x < 1.5 && Input.GetTouch (0).deltaPosition.x > -1.5)) {						//checks the card and input
-				if (arrows.Count >= 1) {								//if the top of the queue matches input
-					if (arrows [0].type == 0) {								//success, else damages you
-						correctInput ();
-					} else {
-						badInput ();
-					}
-				}
-			}
-			if ((Input.GetTouch (0).deltaPosition.y < 0 && Input.GetTouch (0).deltaPosition.x < 1.5 && Input.GetTouch (0).deltaPosition.x > -1.5)) {
-				if (arrows.Count >= 1) {
-					if (arrows [0].type == 1) {
-						correctInput ();
-					} else {
-						badInput ();
-					}
-				}
-			}
-			if ((Input.GetTouch (0).deltaPosition.x < 0 && Input.GetTouch (0).deltaPosition.y < 1.5 && Input.GetTouch (0).deltaPosition.y > -1.5)) {
-				if (arrows.Count >= 1) {
-					if (arrows [0].type == 2) {
-						correctInput ();
-					} else {
-						badInput ();
-					}
-				}
-			}
-			if ((Input.GetTouch (0).deltaPosition.x > 0 && Input.GetTouch (0).deltaPosition.y < 1.5 && Input.GetTouch (0).deltaPosition.y > -1.5)) {
-				if (arrows.Count >= 1) {
-					if (arrows [0].type == 3) {
-						correctInput ();
-					} else {
-						badInput ();	
-					}
-				}
-			}
-		}
-	}
+        if (Input.touchCount > 0 && !swiping)
+        {
+            Debug.Log("Entering touch swipe");
+            swiping = true;
+            // Get the first input
+            Touch t = Input.GetTouch(0);
+
+            // Get the different states of each touch
+            if (t.phase == TouchPhase.Began)
+            {
+                // Get where it started from
+                Debug.Log("BEGINNING");
+                startPos = new Vector2(t.position.x, t.position.y);
+            }
+            if (t.phase == TouchPhase.Ended)
+            {
+                Debug.Log("ENDING");
+                // Get where it stopped
+                endPos = new Vector2(t.position.x, t.position.y);
+
+                // Create Vector
+                curSwipe = new Vector3(endPos.x - startPos.x, endPos.y - startPos.y);
+                curSwipe.Normalize();
+
+                if (curSwipe.x < 0 && curSwipe.y > -0.5f && curSwipe.y < 0.5f)
+                {
+                    left = true;
+                }
+                else if (curSwipe.x > 0 && curSwipe.y > -0.5f && curSwipe.y < 0.5f)
+                {
+                    right = true;
+                }
+                else if (curSwipe.y > 0 && curSwipe.x > -0.5f && curSwipe.x < 0.5f)
+                {
+                    up = true;
+                }
+                else if (curSwipe.y < 0 && curSwipe.x > -0.5f && curSwipe.x < 0.5f)
+                {
+                    down = true;
+                }
+
+                Debug.Log("UP " + up + " DOWN " + down + " LEFT " + left + " RIGHT " + right);
+            }
+        }
+        if (up)
+        {                       //checks the card and input
+            up = false;
+            if (arrows.Count >= 1)
+            {                               //if the top of the queue matches input
+                if (arrows[0].type == 0)
+                {                               //success, else damages you
+                    correctInput();
+                }
+                else
+                {
+                    badInput();
+                }
+            }
+        }
+        if (down)
+        {
+            down = false;
+            if (arrows.Count >= 1)
+            {
+                if (arrows[0].type == 1)
+                {
+                    correctInput();
+                }
+                else
+                {
+                    badInput();
+                }
+            }
+        }
+        if (left)
+        {
+            left = false;
+            if (arrows.Count >= 1)
+            {
+                if (arrows[0].type == 2)
+                {
+                    correctInput();
+                }
+                else
+                {
+                    badInput();
+                }
+            }
+        }
+        if (right)
+        {
+            right = false;
+            if (arrows.Count >= 1)
+            {
+                if (arrows[0].type == 3)
+                {
+                    correctInput();
+                }
+                else
+                {
+                    badInput();
+                }
+            }
+        }
+        swiping = false;
+    }
 
 	//what happens if you get it right
 	void correctInput(){
