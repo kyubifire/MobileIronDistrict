@@ -19,7 +19,7 @@ public class FallingGearGame : MonoBehaviour
 	public GameObject defeat;
 	public GameObject player;
 	public GameObject healthBar;
-	public GameObject backgrounds;
+	//public GameObject backgrounds;
 	public GameObject progress;
 	private bool endGame;
 	private bool gameStart;
@@ -40,7 +40,7 @@ public class FallingGearGame : MonoBehaviour
 
 		health = 10;
 		maxHealth = 10;
-		Instantiate (backgrounds);
+		//Instantiate (backgrounds);
 		nextSpawnTime = Time.time;
 		progress = (GameObject)Instantiate (progress);
 		endGame = false;
