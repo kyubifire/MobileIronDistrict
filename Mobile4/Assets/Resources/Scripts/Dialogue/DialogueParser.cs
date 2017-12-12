@@ -30,6 +30,8 @@ public class DialogueParser : MonoBehaviour {
 		}
 	}
 
+	string filePath;
+
 	// Use this for initialization
 	void Start () {
 		string file = "Dialogue";
@@ -38,9 +40,11 @@ public class DialogueParser : MonoBehaviour {
 		sceneNum = sceneIdx.ToString ();
 		//Debug.Log (sceneNum);
 		file += sceneNum;
-		file += ".txt";
+		//file += ".txt";
 		//Debug.Log (file);
 		LoadDialogue (file);   // file = "Dialogue1.txt"
+
+		filePath = System.IO.Path.Combine( Application.streamingAssetsPath, file);
 
 		images = new List<Sprite> ();
 		LoadImages ();
@@ -91,7 +95,7 @@ public class DialogueParser : MonoBehaviour {
 		for (int i = 0; i < lines.Count; i++) {
 			string imageName = lines [i].name;
 			//Debug.Log("Assigning imageName: " + imageName);
-			string imageFile = "Art/Sprites/Dialogue/" + imageName;
+			string imageFile = "Art/Dialogue/" + imageName;
 			//Debug.Log ("** sprite to be used:" + imageFile);
 			Sprite image = (Sprite) Resources.Load(imageFile, typeof(Sprite));
 			//Debug.Log ("IMAGE TO BE USED: "+ image);
@@ -101,11 +105,23 @@ public class DialogueParser : MonoBehaviour {
 			}
 		}
 	}
+		
 
 	void LoadDialogue (string filename) {
-		string file = Application.streamingAssetsPath + "/" + filename;
+		//string file = Application.streamingAssetsPath + "/Files/" + filename;
+		string realPath;
+		string file = "";
+		string filePath = System.IO.Path.Combine( Application.streamingAssetsPath, filename + ".txt");
+		WWW reader = new WWW (filePath);
+		while (!reader.isDone) {
+			realPath = Application.persistentDataPath + "/" + filename;
+			System.IO.File.WriteAllText(realPath, reader.text);
+			file = realPath;
+		}
+
+
 		Debug.Log ("FILE BEING USED: " + file);
-		//Debug.Log(filename);
+		Debug.Log(filename);
 		string line;
 
 		StreamReader r = new StreamReader (file);
@@ -116,20 +132,6 @@ public class DialogueParser : MonoBehaviour {
 				//Debug.Log("Line: " + line);
 				if (line != null) {
 					string[] lineValues = line.Split('|');
-                    if (lineValues[0] == "Player")
-                    {
-                        //make empty dialogue line
-                        DialogueLine newLine = new DialogueLine(lineValues[0], "", 0, "");
-                        //set up options to be read in. -1 because you dont want the 'player' tag to count
-                        newLine.options = new string[lineValues.Length - 1];
-                        for (int i = 1; i < lineValues.Length; i++)
-                        {
-                            // Retrieve only the meaningful data.
-                            newLine.options[i - 1] = lineValues[i];
-                        }
-                        lines.Add(newLine);
-                    }
-                    else {
                         //Debug.Log("List: " + lineValues);
                         //for ( int i = 0; i < lineValues.Length; i++) {
                         //	Debug.Log("** Line Values: " + lineValues[i]);
@@ -139,7 +141,6 @@ public class DialogueParser : MonoBehaviour {
                         //Debug.Log(int.Parse(lineValues[2]));
                         DialogueLine newLine = new DialogueLine(lineValues[0], lineValues[1], int.Parse(lineValues[2]), lineValues[3]);
                         lines.Add(newLine);
-                    }
 				}
 			}
 			while (line != null);

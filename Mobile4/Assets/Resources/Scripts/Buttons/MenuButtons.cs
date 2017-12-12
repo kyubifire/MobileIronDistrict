@@ -19,7 +19,15 @@ public class MenuButtons : MonoBehaviour {
 		SceneManager.LoadScene (1);
 	}
 
+	public void LoadArcade() {
+
+	}
+
 	public void LoadCredits() {
 		SceneManager.LoadScene (15);
+	}
+
+	public void ExitGame () {
+		Application.Quit ();
 	}
 }

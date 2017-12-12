@@ -13,7 +13,6 @@ public class FallingGearGame : MonoBehaviour
 	private int maxHealth;
 	public int wantGear;
 	public int Score = 0;
-
 	public thoughtBubble thought;
 	public GameObject victory;
 	public GameObject defeat;
@@ -25,21 +24,20 @@ public class FallingGearGame : MonoBehaviour
 	private bool gameStart;
 
 	public GameObject instructions;
-	public Button moveOnButton;
-	public Button reloadButton1;
-	public Button reloadButton2;
 	public Button closeBtn;
 
 	private int sceneIdx;
 	// Use this for initialization
 	void Start () {
 		gameStart = false;
-		//player = (GameObject)Instantiate (player);
+		player = (GameObject)Instantiate (player);
 		healthBar = (GameObject)Instantiate (healthBar);
 		healthBar.transform.position -= new Vector3 (3, 0, 0);
 
-		health = 10;
-		maxHealth = 10;
+//		health = 10;
+//		maxHealth = 10;
+		maxHealth = 50;
+		health = maxHealth;
 		//Instantiate (backgrounds);
 		nextSpawnTime = Time.time;
 		progress = (GameObject)Instantiate (progress);
@@ -49,16 +47,18 @@ public class FallingGearGame : MonoBehaviour
 		thought.changeState (wantGear);
 
 		falling.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f); //gears too large, shrink them
+		//player.transform.localScale = new Vector3(0.85f, 0.85f, 0.85f); // sprite too large
 
 		sceneIdx = SceneManager.GetActiveScene ().buildIndex;
 	}
 	
 	// Update is called once per frame
 	void Update () { 
+		Debug.Log ("Gear Wanted: " + wantGear);
 
 		closeBtn.onClick.AddListener (CloseInstructions);
 
-		if (endGame && Input.GetMouseButton (0)) { // back up if win/lose dont work until new phone is activated to test mobibe build -- gabby
+		if (endGame && Input.anyKey) {
 			SceneManager.LoadScene(sceneIdx + 1);
 		}
 
@@ -80,6 +80,10 @@ public class FallingGearGame : MonoBehaviour
 				defeat.SetActive(true);
 				Destroy (healthBar);
 			}
+
+			thought.type = wantGear; // ** I added
+			thought.changeState (thought.type); // ** I added
+
 			healthBar.transform.localScale = new Vector3 ((float) 8 * health / maxHealth, .5f, 1f);
 
 			if (Time.time >= nextSpawnTime && !endGame) {
@@ -92,7 +96,7 @@ public class FallingGearGame : MonoBehaviour
 				Vector3 worldPos = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
 				Vector2 touchPos = new Vector2 (worldPos.x, worldPos.y);
 
-				// on click it checks if overlaos with gear scripted object
+				// on click it checks if overlaps with gear scripted object
 				var hit = Physics2D.OverlapPoint (touchPos);
 				if (hit && hit.gameObject.GetComponent<Gear> () != null) {
 					int a = hit.gameObject.GetComponent <Gear> ().type;

@@ -1,21 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
+	public Camera camera;
 	public PlayerController player;
-	public SentinelScript enemy;
+	public SentinelScript senPrefab;
+
 
 	public GameObject instructions;
-	public Button closeBtn;
+	public GameObject win;
+	public GameObject loss;
+
 	public int chargeAmount;
 	//public GameObject specialAtkBG;
 
-
-
 	// Use this for initialization
 	void Start () {
+
+		win.SetActive (false);
+		loss.SetActive (false);
 		//chargeAmount = player.GetComponent<PlayerController> ().chargeAmount;
 		chargeAmount = 15;
 
@@ -30,13 +36,17 @@ public class Manager : MonoBehaviour {
 
 		chargeAmount = 0;
 
-		closeBtn.onClick.AddListener (CloseInstructions);
+		if (Input.anyKey) {
+			instructions.SetActive (false);
+		}
 
+		if (senPrefab.GetComponent<SentinelScript> ().dead) {
+			win.SetActive (true);
+		}
 
-	}
-
-	void CloseInstructions() {
-		instructions.SetActive (false);
+		if (player.GetComponent<PlayerController> ().dead) {
+			loss.SetActive (true);
+		}
 	}
 
 //	void SpecialAttack() {

@@ -18,14 +18,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.8666667
         value: {x: 29.92676, y: -475, z: -3.75}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 20
-        value: {x: 29.92676, y: 487, z: -3.75}
+        value: {x: 29.92676, y: 700, z: -3.75}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -61,7 +61,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -76,7 +76,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.8666667
         value: 29.92676
         inSlope: 0
         outSlope: 0
@@ -98,14 +98,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.8666667
         value: -475
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 20
-        value: 487
+        value: 700
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -120,7 +120,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.8666667
         value: -3.75
         inSlope: 0
         outSlope: 0

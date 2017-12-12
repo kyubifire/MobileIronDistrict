@@ -48,8 +48,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MiniGame4.unity
     guid: 1649090ed359d794a8d80dee17a01d74
   - enabled: 1
-    path: Assets/Scenes/End.unity
-    guid: 2bb92e0845d02064c82c783600bb7cac
-  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 3f005578e3d002c4ea4727c205613cb1
