@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowCard : MonoBehaviour {
 	Animator animator;
-	Vector3 velocity;
+	public Vector3 velocity;
 	public int type;
 
 	// Use this for initialization

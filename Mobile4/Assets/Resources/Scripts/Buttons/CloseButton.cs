@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CloseButton : MonoBehaviour {
 	public GameObject instructions;
+	public ArrowGame game;
 
 	// Use this for initialization
 	void Start () {
@@ -17,5 +18,7 @@ public class CloseButton : MonoBehaviour {
 
 	public void CloseInstructions() {
 		instructions.SetActive (false);
+		game.gameBegin = true;
+
 	}
 }

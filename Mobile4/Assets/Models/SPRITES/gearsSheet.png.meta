@@ -1,10 +1,6 @@
 fileFormatVersion: 2
 guid: 1c03b37c2c40e4aa39e5a7eb5bac3140
-<<<<<<< HEAD
-timeCreated: 1510935269
-=======
 timeCreated: 1511196828
->>>>>>> master
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -108,15 +104,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-<<<<<<< HEAD
-        y: 3202
-        width: 998
-        height: 798
-=======
         y: 3203
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,15 +118,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-<<<<<<< HEAD
-        y: 3202
-        width: 998
-        height: 798
-=======
         y: 3203
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,15 +132,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
-<<<<<<< HEAD
-        y: 3202
-        width: 998
-        height: 798
-=======
         y: 3203
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,15 +146,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-<<<<<<< HEAD
-        y: 2402
-        width: 998
-        height: 798
-=======
         y: 2403
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,15 +160,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-<<<<<<< HEAD
-        y: 2402
-        width: 998
-        height: 798
-=======
         y: 2403
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,15 +174,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
-<<<<<<< HEAD
-        y: 2402
-        width: 998
-        height: 798
-=======
         y: 2403
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,15 +188,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-<<<<<<< HEAD
-        y: 1602
-        width: 998
-        height: 798
-=======
         y: 1603
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,15 +202,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-<<<<<<< HEAD
-        y: 1602
-        width: 998
-        height: 798
-=======
         y: 1603
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,15 +216,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
-<<<<<<< HEAD
-        y: 1602
-        width: 998
-        height: 798
-=======
         y: 1603
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,15 +230,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-<<<<<<< HEAD
-        y: 802
-        width: 998
-        height: 798
-=======
         y: 803
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,15 +244,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-<<<<<<< HEAD
-        y: 802
-        width: 998
-        height: 798
-=======
         y: 803
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,15 +258,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
-<<<<<<< HEAD
-        y: 802
-        width: 998
-        height: 798
-=======
         y: 803
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,15 +272,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-<<<<<<< HEAD
-        y: 2
-        width: 998
-        height: 798
-=======
         y: 3
         width: 997
         height: 797
->>>>>>> master
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
