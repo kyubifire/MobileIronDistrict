@@ -108,7 +108,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 1
-  controlID: 59
+  controlID: 75
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 60
+  controlID: 76
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 61
+  controlID: 12
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -368,9 +368,9 @@ MonoBehaviour:
     height: 926
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1a400000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 08cbfeff26cffeff20dafeffa2effeff3608ffffee1effff5a28ffffd829ffff3032ffffb646ffffc652ffff2055fffff056ffff7c58ffffcc59ffff7e5effff9470ffff42cdffff00000000044300004e520000
+    m_SelectedIDs: 80370000
+    m_LastClickedID: 14208
+    m_ExpandedIDs: d6dbffffa6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -420,14 +420,14 @@ MonoBehaviour:
     width: 1235
     height: 458
   m_SceneLighting: 1
-  lastFramingTime: 649.253759385721
+  lastFramingTime: 492.9776524879948
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 598.41974, y: 249.68982, z: -8.785317}
+    m_Target: {x: 353, y: 220.5, z: 0}
     speed: 2
-    m_Value: {x: 598.41974, y: 249.68982, z: -8.785317}
+    m_Value: {x: 353, y: 220.5, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -454,9 +454,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1101.4541
+    m_Target: 1373.4869
     speed: 2
-    m_Value: 1101.4541
+    m_Value: 1373.4869
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
-  m_ViewIsLockedToObject: 0
+  m_ViewIsLockedToObject: 1
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -640,19 +640,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: 60
   m_LastProjectPath: C:\Users\Gabrielle\Desktop\capstone\MobileIronDistrict\Mobile4
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 242}
-    m_SelectedIDs: 963e0000
-    m_LastClickedID: 16022
-    m_ExpandedIDs: 00000000da3c00002c3d0000c83d0000223e0000603e0000963e0000503f0000883f0000fa3f00000c4000005c40000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 95}
+    m_SelectedIDs: 88270000
+    m_LastClickedID: 10120
+    m_ExpandedIDs: 000000008827000030280000ee290000122b00002c2c0000d42c0000922e00005c2f00008e300000c0300000c631000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -680,7 +680,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000da3c00002c3d0000c83d0000223e0000603e0000963e0000503f0000883f0000fa3f00000c4000005c400000
+    m_ExpandedIDs: 000000008827000030280000ee290000122b00002c2c0000d42c0000922e00005c2f00008e300000c0300000c6310000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
