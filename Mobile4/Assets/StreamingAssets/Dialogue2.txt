@@ -1,0 +1,15 @@
+﻿Breya|"Hey Emilia, where have you been? We were supposed to meet an hour ago."|0|L
+Emilia|"I found an old sentinel that was exposed after last night's rain"|1|R
+|""|0|R
+|""|0|R
+|""|1|L
+|""|1|L
+|""|0|R
+|""|0|R
+|""|1|L
+|""|0|R
+|""|1|L
+|""|0|R
+|""|0|R
+|""|1|L
+|“”|0|R

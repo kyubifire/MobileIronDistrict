@@ -12,11 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueScene1.unity
     guid: 4d7fcdbd8884c3d4284c17d1a6d30acc
   - enabled: 1
+    path: Assets/Scenes/LoadScene.unity
+    guid: 66e8534b35beb524cad93ea2e94abc37
+  - enabled: 1
     path: Assets/Scenes/FallingGearGame.unity
     guid: a727a2e95aa4148d1af92d2d2e158d5e
   - enabled: 1
     path: Assets/Scenes/DialogueScene2.unity
     guid: bd1b9319afcbb274592277c84e0c1ad2
+  - enabled: 1
+    path: Assets/Scenes/LoadScene2.unity
+    guid: ceb15ccd2dfdefe4c918dfaae82cf9d4
   - enabled: 1
     path: Assets/Scenes/MatchMobile.unity
     guid: 7883182216d446a4786c549505f40d70
@@ -39,11 +45,17 @@ EditorBuildSettings:
     path: Assets/Scenes/DialogueScene5.unity
     guid: e0c79bd005b6b584b84c27232b809376
   - enabled: 1
+    path: Assets/Scenes/LoadScene3.unity
+    guid: 6b0163da998aa094e9213468ecb04707
+  - enabled: 1
     path: Assets/Scenes/ArrowMobile.unity
     guid: 39feb89798207441599f687d5b48d226
   - enabled: 1
     path: Assets/Scenes/Cutscene5.unity
     guid: db0d40dd738adcd44888ca8f71e6d963
+  - enabled: 1
+    path: Assets/Scenes/LoadScene4.unity
+    guid: 50b8bc959e1736b458c43811e8c2c463
   - enabled: 1
     path: Assets/Scenes/MiniGame4.unity
     guid: 1649090ed359d794a8d80dee17a01d74

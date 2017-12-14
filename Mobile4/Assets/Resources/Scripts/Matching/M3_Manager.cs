@@ -14,6 +14,7 @@ public class M3_Manager : MonoBehaviour {
 	public GameObject winObj;
 	public GameObject lossObj;
 	public GameObject instructions;
+	public Button closeBtn;
 
 	public int sceneIdx;
 
@@ -29,12 +30,7 @@ public class M3_Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!gameStarted) {
-			if (Input.anyKey) {
-				instructions.SetActive (false);
-				gameStarted = true;
-			}
-		}
+		closeBtn.onClick.AddListener (CloseInstructions);
 
 		if (enemy.GetComponent<M3_Enemy> ().dead) {
 			// display win screen
@@ -43,5 +39,10 @@ public class M3_Manager : MonoBehaviour {
 			// else display lose screen
 			lossObj.SetActive (true);
 		} 
+	}
+
+	void CloseInstructions() {
+		gameStarted = true;
+		instructions.SetActive (false);
 	}
 }

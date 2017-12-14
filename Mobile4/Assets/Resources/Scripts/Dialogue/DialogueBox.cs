@@ -70,7 +70,6 @@ public class DialogueBox : MonoBehaviour {
 		pose = parser.GetPose(lineNum);
 		position = parser.GetPosition (lineNum);
 		dialogue = parser.GetContent (lineNum);
-		//dialogue = dialogue.Substring(1, dialogue.Length-2);
 		DisplayImages ();
 
 		if (!isTyping) {
@@ -92,7 +91,6 @@ public class DialogueBox : MonoBehaviour {
 		if ((next)) {
 			DialogueDisplay();
 		}
-
 		if (dialogue != "") {
 			SetText ();
 		} else {
@@ -117,7 +115,6 @@ public class DialogueBox : MonoBehaviour {
 			ResetImages();
 			name = parser.GetName(lineNum);
 			dialogue = parser.GetContent(lineNum);
-			//dialogue = dialogue.Substring(1, dialogue.Length-2);
 			pose = parser.GetPose(lineNum);
 			position = parser.GetPosition(lineNum);
 			DisplayImages();
@@ -159,7 +156,7 @@ public class DialogueBox : MonoBehaviour {
 	void SetSpritePositions (GameObject spriteObj) {
 		//Debug.Log ("In SETSPRITEPOSITIONS");
 		if (position == "L") {
-			nameText.transform.position = new Vector3 (nameText.transform.position.x - 30f, nameText.transform.position.y, nameText.transform.position.x);
+			nameText.transform.position = new Vector3 (nameText.transform.position.x - 45f, nameText.transform.position.y, nameText.transform.position.x);
 			spriteObj.transform.position = new Vector3 (-6,Screen.height/384f,0); // set according to hardware width/height, don't hard code values
 			L_sprite = spriteObj;
 			L_render = L_sprite.GetComponent<SpriteRenderer>();
@@ -171,7 +168,7 @@ public class DialogueBox : MonoBehaviour {
 		}
 
 		if (position == "R") {
-			nameText.transform.position = new Vector3 (nameText.transform.position.x + 30f, nameText.transform.position.y, nameText.transform.position.x);
+			nameText.transform.position = new Vector3 (nameText.transform.position.x + 45f, nameText.transform.position.y, nameText.transform.position.x);
 			spriteObj.transform.position = new Vector3 (5, Screen.height/384f,  0);
 			R_sprite = spriteObj;
 			R_render = R_sprite.GetComponent<SpriteRenderer> ();

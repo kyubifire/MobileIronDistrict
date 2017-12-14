@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
+	public Manager manager;
+
 	Animator anim;
 	Rigidbody2D rigidBody;
 	SpriteRenderer render;
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 	float attackTime;
 	float attackStart;
 	bool attacking = false;
-
+	bool walking = false;
 
 	public int chargeAmount;
 
@@ -34,11 +36,23 @@ public class PlayerController : MonoBehaviour {
 	public bool dead = false;
 	public bool damaged;
 	public bool dying;
+	public bool gameStarted;
 
 	private bool flashActive;
 	public float flashLength;
 	private float flashCounter;
 	private Color origColor;
+
+	// buttons for movement
+	public Button leftArrow;
+	public Button rightArrow;
+	public Button upArrow;
+
+	public Button attackBtn;
+	public Button jumpButton;
+
+	public bool leftArrowPushed;
+	public bool rightArrowPushed;
 
 	// Use this for initialization
 	void Start () {
@@ -50,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 		origColor = render.color;
 		flashLength = 0.5f;
 
+		gameStarted = false;
 		onGround = true;
 		velocity = new Vector3 (.1f, 0f, 0f);
 
@@ -58,82 +73,97 @@ public class PlayerController : MonoBehaviour {
 		attackStart = -5;
 		senPrefab = FindObjectOfType<SentinelScript> ();
 
-		//InvokeRepeating("decreasingHealth", 1f, 1f);
+		leftArrowPushed = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (!dead) {
-			Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
 
-			// jump
-			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow) && onGround) {
-				Debug.Log ("pressed key to jump");
-				anim.SetBool ("Jumping", true);
-				rigidBody.AddForce (new Vector2 (0, 80));
-				onGround = false;
+		gameStarted = manager.GetComponent<Manager> ().gameStarted;
 
-			}
-			
-			// attacking
-			if (Input.GetKey (KeyCode.Space) && Time.time > attackStart + 1f) {
-				source.PlayOneShot (attackSound);
-				attacking = true;
-				if (transform.position.x > 1 && transform.position.y < -1) {
-					senPrefab.GetComponent<SentinelScript> ().setEnemyHealth (2);
+		if (gameStarted) {
+			if (!dead) {
+				//Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
+
+				upArrow.onClick.AddListener (Jump);
+				leftArrow.onClick.AddListener (MoveLeft);
+				rightArrow.onClick.AddListener (MoveRight);
+				attackBtn.onClick.AddListener (Attack);
+				//jumpButton.onClick.AddListener (Jump);
+
+				if (attacking && Time.time > attackTime) {
+					anim.SetBool ("IsAttacking", false);
+					attacking = false;
 				}
-				anim.SetTrigger ("Attack");
-				anim.SetBool ("IsAttacking", true);
-
-				attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
-				attackStart = Time.time;
-			}
-			
-
-			if (attacking && Time.time > attackTime) {
-				anim.SetBool ("IsAttacking", false);
-				attacking = false;
-			}
-
-			if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && transform.position.x < 1.5f)
-			{
-				transform.Translate(velocity);
-				anim.SetBool ("Walking", true);
-				render.flipX = false;
-
-			}
-			if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && transform.position.x > -7)
-			{
-				transform.Translate(-1 * velocity);
-				anim.SetBool ("Walking", true);
-				render.flipX = true;
-			}
-			if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
-			{
-				transform.Translate(0f, 0f, 0f);
-				anim.SetBool ("Walking", false);
-
-			}
-
-
-			// make player flash red when hit by changing RGB values of sprite
-			if (flashActive) {
-				if (flashCounter > flashLength * .66f) {
-					render.color = new Color (render.color.r, 0f, 0f, render.color.a); // red
-				} else if (flashCounter > flashLength * .33f) {
-					render.color = origColor; // normal
-				} else if (flashCounter > 0f) {
-					render.color = new Color (render.color.r, 0f, 0f, render.color.a); // final red
-				} else {
-					render.color = origColor; // back to normal
-					flashActive = false;
+				
+				if (!leftArrowPushed && !rightArrowPushed) {
+					transform.Translate (0f, 0f, 0f);
+					anim.SetBool ("Walking", false);
 				}
-				flashCounter -= Time.deltaTime;
+				
+				// make player flash red when hit by changing RGB values of sprite
+				if (flashActive) {
+					if (flashCounter > flashLength * .66f) {
+						render.color = new Color (render.color.r, 0f, 0f, render.color.a); // red
+					} else if (flashCounter > flashLength * .33f) {
+						render.color = origColor; // normal
+					} else if (flashCounter > 0f) {
+						render.color = new Color (render.color.r, 0f, 0f, render.color.a); // final red
+					} else {
+						render.color = origColor; // back to normal
+						flashActive = false;
+					}
+					flashCounter -= Time.deltaTime;
+				}
 			}
 		}
-
-
 	}
+
+	public void MoveLeft() {
+		if (transform.position.x > -7) {
+			transform.Translate(-1 * velocity);
+			anim.SetBool ("Walking", true);
+			render.flipX = true;
+			leftArrowPushed = true;;
+		}
+	}
+
+	public void MoveRight() {
+		if (transform.position.x < 1.5f) {
+			transform.Translate(velocity);
+			anim.SetBool ("Walking", true);
+			render.flipX = false;
+			rightArrowPushed = true;
+		} 
+	}
+
+	public void Jump() {
+		// jump
+		if (onGround) {
+			Debug.Log ("pressed key to jump");
+			anim.SetBool ("Jumping", true);
+			rigidBody.AddForce (new Vector2 (0, 100));
+			onGround = false;
+		}
+	}
+		
+	public void Attack() {
+		// attacking
+		if (Time.time > attackStart + 1f) {
+			source.PlayOneShot (attackSound);
+			attacking = true;
+			if (transform.position.x > 1 && transform.position.y < -1) {
+				senPrefab.GetComponent<SentinelScript> ().setEnemyHealth (2);
+			}
+
+			anim.SetTrigger ("Attack");
+			anim.SetBool ("IsAttacking", true);
+
+			attackTime = Time.time + totalAttackTime; // set to 1 sec -- doesn't have to be accurate need to be less than the actual animation time w/ exit time -- see into using triggers as well
+			attackStart = Time.time;
+		}
+	}
+
 
 	public void setPlayerHealth(float damage) {
 		if (!dead) {

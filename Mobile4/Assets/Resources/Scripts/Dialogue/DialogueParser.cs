@@ -109,19 +109,20 @@ public class DialogueParser : MonoBehaviour {
 
 	void LoadDialogue (string filename) {
 		//string file = Application.streamingAssetsPath + "/Files/" + filename;
-		string realPath;
 		string file = "";
-		string filePath = System.IO.Path.Combine( Application.streamingAssetsPath, filename + ".txt");
-		WWW reader = new WWW (filePath);
-		while (!reader.isDone) {
-			realPath = Application.persistentDataPath + "/" + filename;
-			System.IO.File.WriteAllText(realPath, reader.text);
-			file = realPath;
-		}
 
+		string filePath = System.IO.Path.Combine( Application.streamingAssetsPath, filename + ".txt");
+		//Debug.Log ("FILE PATH: " + filePath);
+
+		WWW reader = new WWW (filePath);
+		while (!reader.isDone) {}
+
+		string realPath = Application.persistentDataPath + "/" + filename;
+		//Debug.Log ("REAL PATH: " + realPath);
+		System.IO.File.WriteAllText(realPath, reader.text);
+		file = realPath;
 
 		Debug.Log ("FILE BEING USED: " + file);
-		Debug.Log(filename);
 		string line;
 
 		StreamReader r = new StreamReader (file);
@@ -129,18 +130,22 @@ public class DialogueParser : MonoBehaviour {
 		using(r){
 			do {
 				line = r.ReadLine();
-				//Debug.Log("Line: " + line);
+				Debug.Log("Line: " + line);
 				if (line != null) {
 					string[] lineValues = line.Split('|');
-                        //Debug.Log("List: " + lineValues);
-                        //for ( int i = 0; i < lineValues.Length; i++) {
-                        //	Debug.Log("** Line Values: " + lineValues[i]);
-                        //}
-                        //Debug.Log(lineValues[0]);
-                        //Debug.Log(lineValues[1]);
-                        //Debug.Log(int.Parse(lineValues[2]));
-                        DialogueLine newLine = new DialogueLine(lineValues[0], lineValues[1], int.Parse(lineValues[2]), lineValues[3]);
-                        lines.Add(newLine);
+					Debug.Log("List: " + lineValues);
+					for ( int i = 0; i < lineValues.Length; i++) {
+						Debug.Log("** Line Values: " + lineValues[i]);
+					}
+					Debug.Log(lineValues[0]);
+                    Debug.Log(lineValues[1]);
+					//Debug.Log(int.Parse(lineValues[2]));
+					int poseLineVal;
+					int.TryParse(lineValues[2], out poseLineVal);
+					//Debug.Log("CHECKING VAL: " + lineValues[2]);
+					//DialogueLine newLine = new DialogueLine(lineValues[0], lineValues[1], int.Parse(lineValues[2]), lineValues[3]);
+					DialogueLine newLine = new DialogueLine(lineValues[0], lineValues[1], poseLineVal, lineValues[3]);
+					lines.Add(newLine);
 				}
 			}
 			while (line != null);

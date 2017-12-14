@@ -1,0 +1,8 @@
+﻿Breya|"So a left turn here...and a right turn there...now I walk straight for some time..."|0|L
+Breya|"No! I can't believe the path collapsed."|0|L
+Breya|"Ugh, which way should I go?"|0|L
+Rat|"EEK!"|1|R
+Rat|"EEK!"|1|R
+Breya|"AAAAHHHH!"|0|L
+Breya|"AAAAHHHH!"|0|L
+|"DEFEAT THE RAT!!"|0|L
