@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour {
 	public Manager manager;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rigidBody;
 	SpriteRenderer render;
 	public SentinelScript senPrefab;
+
 
 	private bool onGround;
 	private Vector3 velocity;
@@ -22,12 +24,10 @@ public class PlayerController : MonoBehaviour {
 	bool attacking = false;
 	bool walking = false;
 
-	public int chargeAmount;
 
 	public AudioSource source;
-	public AudioClip lowHealth;
 	public AudioClip attackSound;
-
+	public AudioClip hitSound;
 
 	public GameObject healthBar;
 	private float calc_playerHealth;
@@ -43,16 +43,11 @@ public class PlayerController : MonoBehaviour {
 	private float flashCounter;
 	private Color origColor;
 
-	// buttons for movement
-	public Button leftArrow;
-	public Button rightArrow;
-	public Button upArrow;
-
+	// get horizontal and vertical axes of movement
+	private Vector2 moveVec;
+	// button for attack
 	public Button attackBtn;
-	public Button jumpButton;
 
-	public bool leftArrowPushed;
-	public bool rightArrowPushed;
 
 	// Use this for initialization
 	void Start () {
@@ -72,33 +67,50 @@ public class PlayerController : MonoBehaviour {
 		attackDamage = 10;
 		attackStart = -5;
 		senPrefab = FindObjectOfType<SentinelScript> ();
-
-		leftArrowPushed = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+		//Debug.Log ("game started? (playerCon)" + gameStarted);
 		gameStarted = manager.GetComponent<Manager> ().gameStarted;
 
 		if (gameStarted) {
 			if (!dead) {
 				//Debug.Log ("PLAYER'S HEALTH: " + playerCurrHealth);
+				moveVec = new Vector2 (CrossPlatformInputManager.GetAxis ("Horizontal"), CrossPlatformInputManager.GetAxis ("Vertical"));
+				rigidBody.AddForce (moveVec);
 
-				upArrow.onClick.AddListener (Jump);
-				leftArrow.onClick.AddListener (MoveLeft);
-				rightArrow.onClick.AddListener (MoveRight);
+				if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0) {
+					Debug.Log (" *** moving stick left or right *** ");
+					Debug.Log (CrossPlatformInputManager.GetAxis ("Horizontal"));
+				}
+
+			
+				if (CrossPlatformInputManager.GetAxis ("Vertical") != 0) {
+					Debug.Log ("*** moving stick up or down ***");
+					Debug.Log (CrossPlatformInputManager.GetAxis ("Vertical"));
+				}
+
+
+				if (CrossPlatformInputManager.GetAxis ("Horizontal") < 0) {
+					MoveLeft ();
+				}
+
+
+				if (CrossPlatformInputManager.GetAxis ("Horizontal") > 0) {
+					MoveRight ();
+				}
+
+
+				if (CrossPlatformInputManager.GetAxis ("Vertical") > 0) {
+					Jump ();
+				}
+			
 				attackBtn.onClick.AddListener (Attack);
-				//jumpButton.onClick.AddListener (Jump);
 
 				if (attacking && Time.time > attackTime) {
 					anim.SetBool ("IsAttacking", false);
 					attacking = false;
-				}
-				
-				if (!leftArrowPushed && !rightArrowPushed) {
-					transform.Translate (0f, 0f, 0f);
-					anim.SetBool ("Walking", false);
 				}
 				
 				// make player flash red when hit by changing RGB values of sprite
@@ -120,40 +132,43 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void MoveLeft() {
+		//Debug.Log ("pressed key to go left");
 		if (transform.position.x > -7) {
 			transform.Translate(-1 * velocity);
 			anim.SetBool ("Walking", true);
 			render.flipX = true;
-			leftArrowPushed = true;;
 		}
 	}
 
 	public void MoveRight() {
+		//Debug.Log ("pressed key to go right");
 		if (transform.position.x < 1.5f) {
 			transform.Translate(velocity);
 			anim.SetBool ("Walking", true);
 			render.flipX = false;
-			rightArrowPushed = true;
 		} 
 	}
 
 	public void Jump() {
 		// jump
 		if (onGround) {
-			Debug.Log ("pressed key to jump");
+			//Debug.Log ("pressed key to jump");
 			anim.SetBool ("Jumping", true);
-			rigidBody.AddForce (new Vector2 (0, 100));
+			//rigidBody.AddForce (new Vector2 (0, Mathf.Clamp(125, 1, 150)));
+			float jumpHeight = 15f;
+			rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpHeight);
 			onGround = false;
 		}
 	}
 		
 	public void Attack() {
+		Debug.Log ("pressed key to to attack");
 		// attacking
 		if (Time.time > attackStart + 1f) {
 			source.PlayOneShot (attackSound);
 			attacking = true;
 			if (transform.position.x > 1 && transform.position.y < -1) {
-				senPrefab.GetComponent<SentinelScript> ().setEnemyHealth (2);
+				senPrefab.GetComponent<SentinelScript> ().setEnemyHealth (10);
 			}
 
 			anim.SetTrigger ("Attack");
@@ -171,7 +186,7 @@ public class PlayerController : MonoBehaviour {
 			playerCurrHealth -= damage;
 			flashActive = true;
 			flashCounter = flashLength;
-
+			source.PlayOneShot(hitSound);
 			//Debug.Log ("player current health: " + playerCurrHealth);
 			float newHealth = playerCurrHealth / playerMaxHealth;
 			//Debug.Log ("changing playerhealth bar by factor:" + newHealth);
@@ -182,15 +197,7 @@ public class PlayerController : MonoBehaviour {
 				anim.SetBool ("Dead", true);
 				dead = true;
 			}
-
-			//if (playerCurrHealth <= 50) {
-			//	LowHealth ();
-			//}
 		}
-	}
-
-	void LowHealth() {
-		source.PlayOneShot (lowHealth);
 	}
 		
 	void OnCollisionEnter2D(Collision2D coll) {
@@ -204,8 +211,8 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("Player Attack Damage: " + attackDamage);
 		if (other.tag == "Enemy") {
 			Debug.Log ("** PLAYER HIT ATTACKED ENEMY **");
+			senPrefab.GetComponent<SentinelScript> ().setEnemyHealth (10);
 			// enemy lose health
-			//enemy.GetComponent<EnemyController>().setEnemyHealth(attackDamage);
 		}
 	}
 

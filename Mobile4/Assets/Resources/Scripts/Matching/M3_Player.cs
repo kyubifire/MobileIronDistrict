@@ -8,7 +8,7 @@ public class M3_Player : MonoBehaviour {
 	public Vector3 startPos;
 
 
-	public GameObject powerUpBar;
+	//public GameObject powerUpBar;
 	public ParticleSystem particles;
 	public GameObject playerHealthBar;
 
@@ -85,7 +85,7 @@ public class M3_Player : MonoBehaviour {
 			playerHealthBar.transform.localScale = new Vector3 (newHealth, playerHealthBar.transform.localScale.y, playerHealthBar.transform.localScale.z);
 		} else {
 			playerHealthBar.transform.localScale = new Vector3 (0f, playerHealthBar.transform.localScale.y, playerHealthBar.transform.localScale.z);
-			powerUpBar.transform.localScale = new Vector3 (0f, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
+			//powerUpBar.transform.localScale = new Vector3 (0f, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
 			anim.SetBool ("Dead", true);
 			dead = true;
 		}
@@ -125,7 +125,7 @@ public class M3_Player : MonoBehaviour {
 		Debug.Log ("testing health bar");
 		playerCurrHealth -= 10f;
 		Debug.Log("player current health: " + playerCurrHealth);
-		playerHealthBar.transform.localScale = new Vector3 (barAmount, powerUpBar.transform.localScale.y, powerUpBar.transform.localScale.z);
+		playerHealthBar.transform.localScale = new Vector3 (barAmount, playerHealthBar.transform.localScale.y, playerHealthBar.transform.localScale.z);
 	}
 
 	// function to test power up bar

@@ -29,6 +29,7 @@ public class DialogueBox : MonoBehaviour {
 
 	public bool next;
 
+	public bool playerChoosing;
 	public bool nextScene;
 
 	private bool leftTalking;
@@ -66,10 +67,11 @@ public class DialogueBox : MonoBehaviour {
 
 		// get character data for first character
 		name = parser.GetName (lineNum);
-		Debug.Log ("First character Name: " + name);
+		//Debug.Log ("First character Name: " + name);
 		pose = parser.GetPose(lineNum);
 		position = parser.GetPosition (lineNum);
 		dialogue = parser.GetContent (lineNum);
+		//dialogue = dialogue.Substring(1, dialogue.Length-2);
 		DisplayImages ();
 
 		if (!isTyping) {
@@ -88,9 +90,10 @@ public class DialogueBox : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if ((next)) {
+		if ((next || Input.GetKeyDown(KeyCode.Space)) && playerChoosing == false) {
 			DialogueDisplay();
 		}
+
 		if (dialogue != "") {
 			SetText ();
 		} else {
@@ -104,6 +107,7 @@ public class DialogueBox : MonoBehaviour {
 		source.PlayOneShot(click);
 		next = false;
 		if (parser.GetName(lineNum) == "Player" && !isTyping) {
+			playerChoosing = true;
 			name = "";
 			dialogue = "";
 			// what does pose equal? --> the sprite being used, can use multiple sprites to have different mannerisms or facial expressions
@@ -111,16 +115,17 @@ public class DialogueBox : MonoBehaviour {
 			position = "";
 			lineNum++;
 		}
-		else if (!isTyping) {
+		else if (!isTyping && !playerChoosing) {
 			ResetImages();
 			name = parser.GetName(lineNum);
 			dialogue = parser.GetContent(lineNum);
+			//dialogue = dialogue.Substring(1, dialogue.Length-2);
 			pose = parser.GetPose(lineNum);
 			position = parser.GetPosition(lineNum);
 			DisplayImages();
 			lineNum++;
 			StartCoroutine(TextScroll(dialogue));
-		} else if (isTyping && !cancelTyping) {
+		} else if (isTyping && !cancelTyping && !playerChoosing) {
 			source.PlayOneShot(click);
 			cancelTyping = true;
 		}
@@ -137,7 +142,7 @@ public class DialogueBox : MonoBehaviour {
 			GameObject character = GameObject.Find (name);
 			Debug.Log ("Character speaking now: " + character);
 			SpriteRenderer currSprite = character.GetComponent<SpriteRenderer> ();
-			Debug.Log ("Current sprite: " + currSprite);
+			//Debug.Log ("Current sprite: " + currSprite);
 		}
 	}
 
@@ -156,7 +161,7 @@ public class DialogueBox : MonoBehaviour {
 	void SetSpritePositions (GameObject spriteObj) {
 		//Debug.Log ("In SETSPRITEPOSITIONS");
 		if (position == "L") {
-			nameText.transform.position = new Vector3 (nameText.transform.position.x - 45f, nameText.transform.position.y, nameText.transform.position.x);
+			nameText.transform.position = new Vector3 (nameText.transform.position.x - 75f, nameText.transform.position.y, nameText.transform.position.x);
 			spriteObj.transform.position = new Vector3 (-6,Screen.height/384f,0); // set according to hardware width/height, don't hard code values
 			L_sprite = spriteObj;
 			L_render = L_sprite.GetComponent<SpriteRenderer>();
@@ -168,7 +173,7 @@ public class DialogueBox : MonoBehaviour {
 		}
 
 		if (position == "R") {
-			nameText.transform.position = new Vector3 (nameText.transform.position.x + 45f, nameText.transform.position.y, nameText.transform.position.x);
+			nameText.transform.position = new Vector3 (nameText.transform.position.x + 75f, nameText.transform.position.y, nameText.transform.position.x);
 			spriteObj.transform.position = new Vector3 (5, Screen.height/384f,  0);
 			R_sprite = spriteObj;
 			R_render = R_sprite.GetComponent<SpriteRenderer> ();
